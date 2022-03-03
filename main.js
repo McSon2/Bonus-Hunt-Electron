@@ -1,6 +1,7 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain } = require("electron");
 const { dirname } = require("path");
 const path = require("path");
+const ipc = ipcMain;
 
 //Window
 function createWindow() {
@@ -11,10 +12,10 @@ function createWindow() {
     minHeight: 640,
     closable: true,
     darkTheme: true,
-    frame: true,
+    frame: false,
     icon: path.join(__dirname, "/ico.ico"),
     webPreferences: {
-      nodeIntegration: false,
+      nodeIntegration: true,
       contextIsolation: false,
       devTools: true,
       preload: path.join(__dirname, "preload.js"),
@@ -23,6 +24,27 @@ function createWindow() {
 
   win.loadFile("index.html");
   win.webContents.openDevTools();
+
+  //Gestion IPC
+  //Gestion Fenetre
+
+  ipc.on("reduceApp", () => {
+    win.minimize();
+  });
+
+  ipc.on("sizeApp", () => {
+    if (win.isMaximized()) {
+      win.restore();
+      win.resizable = true
+    } else {
+      win.maximize();
+      win.resizable = false
+    }
+  });
+
+  ipc.on("closeApp", () => {
+    win.close();
+  });
 }
 
 // When Electron Ready

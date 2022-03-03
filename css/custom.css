@@ -1,14 +1,27 @@
 #topMenu {
-
+    -webkit-app-region: drag;
 }
 #topMenuBtns {
     position: absolute;
     right: 5px;
+    -webkit-app-region: no-drag;
 }
 .topMenuBtn {
     border: none;
     outline: none;
     background: transparent;
-    margin: 0 10px;
     color: #2980b9;
+    transition: all ease-in-out .2s;
+    width: 40px;
+}
+
+#closeBtn, #reduceBtn, #sizeBtn {
+}
+
+#reduceBtn:hover, #sizeBtn:hover {
+    background-color: #333333;
+}
+
+#closeBtn:hover {
+    background-color: #FF0000;
 }
