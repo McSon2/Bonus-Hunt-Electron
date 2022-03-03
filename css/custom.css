@@ -1,10 +1,10 @@
 #topMenu {
     -webkit-app-region: drag;
+    -webkit-user-select: none;
 }
 #topMenuBtns {
     position: absolute;
     right: 5px;
-    -webkit-app-region: no-drag;
 }
 .topMenuBtn {
     border: none;
@@ -13,6 +13,7 @@
     color: #2980b9;
     transition: all ease-in-out .2s;
     width: 40px;
+    -webkit-app-region: no-drag;
 }
 
 #closeBtn, #reduceBtn, #sizeBtn {

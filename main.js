@@ -63,3 +63,6 @@ app.on("window-all-closed", () => {
     app.quit();
   }
 });
+
+// process.versions.electron
+// npx electron --version

@@ -9327,6 +9327,7 @@ a:focus {
 .topbar #sidebarToggleTop {
   height: 2.5rem;
   width: 2.5rem;
+  -webkit-app-region: no-drag;
 }
 .topbar #sidebarToggleTop:hover {
   background-color: #eaecf4;
