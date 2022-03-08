@@ -15,8 +15,8 @@ function createWindow() {
     frame: false,
     icon: path.join(__dirname, "/ico.ico"),
     webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
+      nodeIntegration: false,
+      contextIsolation: true,
       devTools: true,
       preload: path.join(__dirname, "preload.js"),
     },
@@ -25,14 +25,15 @@ function createWindow() {
   win.loadFile("index.html");
   win.webContents.openDevTools();
 
-  //Gestion IPC
-  //Gestion Fenetre
-
-  ipc.on("reduceApp", () => {
-    win.minimize();
-  });
-
-  ipc.on("sizeApp", () => {
+  ipc.on("app/close", () => {
+    app.quit()
+  })
+  
+  ipc.on("app/minimize", () => {
+    win.minimize()
+  })
+  
+  ipc.on("app/size", () => {
     if (win.isMaximized()) {
       win.restore();
       win.resizable = true
@@ -40,11 +41,7 @@ function createWindow() {
       win.maximize();
       win.resizable = false
     }
-  });
-
-  ipc.on("closeApp", () => {
-    win.close();
-  });
+  })
 }
 
 // When Electron Ready
@@ -63,6 +60,3 @@ app.on("window-all-closed", () => {
     app.quit();
   }
 });
-
-// process.versions.electron
-// npx electron --version

@@ -1,18 +1,19 @@
-const {ipcRenderer} = require('electron')
-const ipc = ipcRenderer
+const MINUS = document.getElementById("reduceBtn")
+const SIZE = document.getElementById("sizeBtn")
+const CLOSE_APP = document.getElementById("closeBtn")
 
-const reduceBtn = document.getElementById("reduceBtn")
-const sizeBtn = document.getElementById("sizeBtn")
-const closeBtn = document.getElementById("closeBtn")
+MINUS.addEventListener("click", reduce_app)
+SIZE.addEventListener("click", size_app)
+CLOSE_APP.addEventListener("click", close_app)
 
-reduceBtn.addEventListener("click", () => {
-    ipc.send ("reduceApp")
-})
+function close_app () {
+    app.window.close();
+}
 
-sizeBtn.addEventListener("click", () => {
-    ipc.send ("sizeApp")
-})
+function size_app () {
+    app.window.size();
+}
 
-closeBtn.addEventListener("click", () => {
-    ipc.send ("closeApp")
-})
+function reduce_app () {
+    app.window.minimize();
+}
