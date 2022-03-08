@@ -1,9 +1,10 @@
-/* List Hunt
+-- SQLite
+/*
 SELECT slots.slot, slots.provider, hunt.bet_size, hunt.payout, hunt.multiplier
   FROM hunt
   JOIN slots on slots.id = hunt.id_slots
-  */
-  
+*/
+
 /* Highest X
 SELECT slots.slot, slots.provider, hunt.bet_size, hunt.payout, hunt.multiplier
   FROM hunt
@@ -79,3 +80,4 @@ SELECT slots.provider, COUNT(*) as slots
 /* NB BONUS
 SELECT count(*) as NB_Bonus
     FROM hunt
+*/
