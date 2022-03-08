@@ -13,7 +13,7 @@ function createWindow() {
     closable: true,
     darkTheme: true,
     frame: false,
-    icon: path.join(__dirname, "/ico.ico"),
+    icon: path.join(__dirname, "./images/ico.ico"),
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,

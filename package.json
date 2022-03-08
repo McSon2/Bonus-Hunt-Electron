@@ -1,16 +1,17 @@
 {
-  "name": "Bonus Hunt",
+  "name": "bonus_hunt",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "rebuild": "electron-rebuild -f -w sqlite3"
   },
   "keywords": [],
   "author": "Maxime Saltet",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^17.1.0"
-  },
-  "dependencies": {}
+    "electron": "^17.1.0",
+    "electron-rebuild": "^3.2.7"
+  }
 }
