@@ -4,18 +4,13 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
-    "postinstall": "electron-builder install-app-deps"
+    "start": "electron ."
   },
   "keywords": [],
   "author": "Maxime Saltet",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^17.1.0",
-    "electron-builder": "^22.14.13",
-    "electron-rebuild": "^3.2.7"
+    "electron": "^17.1.0"
   },
-  "dependencies": {
-    "sqlite3": "^5.0.2"
-  }
+  "dependencies": {}
 }
