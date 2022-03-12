@@ -2,11 +2,13 @@
     -webkit-app-region: drag;
     user-select: none;
     -webkit-user-select: none;
-    margin: 0 0 0 225px;
+    margin-left: 225px;
 }
+
 #topMenuBtns {
     position: absolute;
     right: 5px;
+    
 }
 .topMenuBtn {
     border: none;
@@ -27,6 +29,8 @@
 }
 
 #BOD {
+    padding-bottom: 50px;
+    padding-left: 250px;
     padding-top: 50px;
 }
 
@@ -34,4 +38,23 @@
     position: absolute;
     right: 15px;
     top : 15px;
+}
+
+@media screen and (max-width : 768px) {
+    #BOD {
+        padding-left: 130px;
+    }
+    #topMenu {
+        margin-left: 105px;
+    }
+}
+
+@media screen and (max-width : 496px) {
+    #BOD {
+        padding-left: 30px;
+    }
+    #topMenu {
+        margin-left: 0px;
+    }
+    
 }
