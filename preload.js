@@ -9,6 +9,14 @@ const getTotalCost = () => {
     return db.getTotalCost();
 }
 
+const getTotalWin = () => {
+    return db.getTotalWin();
+}
+
+const getProfitLoss = () => {
+    return db.getProfitLoss();
+}
+
 const API = {
     window: {
         close: () => ipcRenderer.send("app/close"),
@@ -21,5 +29,7 @@ const API = {
 contextBridge.exposeInMainWorld("app", API)
 contextBridge.exposeInMainWorld("api", {
     getNbonus: getNbonus,
-    getTotalCost: getTotalCost
+    getTotalCost: getTotalCost,
+    getTotalWin: getTotalWin,
+    getProfitLoss: getProfitLoss
 })

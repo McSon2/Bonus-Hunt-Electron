@@ -68,35 +68,35 @@
             </div>
             -->
 
-        <li class="nav-item ">
+        <li class="nav-item">
           <a class="nav-link" href="HTML/bonushunt.html">
             <i class="nav-icon fas fa-bullseye"></i>
             <span>Bonus Hunts</span></a
           >
         </li>
 
-        <li class="nav-item ">
+        <li class="nav-item">
           <a class="nav-link" href="HTML/tournaments.html">
             <i class="nav-icon fas fa-chess"></i>
             <span>Tournaments</span></a
           >
         </li>
 
-        <li class="nav-item ">
+        <li class="nav-item">
           <a class="nav-link" href="HTML/widgets.html">
             <i class="nav-icon fas fa-th"></i>
             <span> Streaming Widgets </span>
           </a>
         </li>
 
-        <li class="nav-item ">
+        <li class="nav-item">
           <a class="nav-link" href="HTML/setwidgets.html">
             <i class="nav-icon fas fa-cog"></i>
             <span> Widgets Settings </span>
           </a>
         </li>
 
-        <li class="nav-item ">
+        <li class="nav-item">
           <a class="nav-link" href="HTML/stats.html">
             <i class="nav-icon fas fa-chart-line"></i>
             <span> Statistics </span>
@@ -192,7 +192,10 @@
                         >
                           Bonus Hunts
                         </div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="nbonus">
+                        <div
+                          class="h5 mb-0 font-weight-bold text-gray-800"
+                          id="nbonus"
+                        >
                           3
                         </div>
                       </div>
@@ -204,10 +207,7 @@
                 </div>
               </div>
 
-              <script>
-                
-              </script>
-                
+              <script></script>
 
               <!-- Earnings (Monthly) Card Example -->
               <div class="col-xl-3 col-md-6 mb-4">
@@ -220,7 +220,10 @@
                         >
                           Total Cost
                         </div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="getTotalCost">
+                        <div
+                          class="h5 mb-0 font-weight-bold text-gray-800"
+                          id="TotalCost"
+                        >
                           $1,000.00
                         </div>
                       </div>
@@ -243,7 +246,10 @@
                         >
                           Total Winnings
                         </div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <div
+                          class="h5 mb-0 font-weight-bold text-gray-800"
+                          id="TotalWin"
+                        >
                           $500.00
                         </div>
                       </div>
@@ -266,7 +272,10 @@
                         >
                           Profit/Loss +/-
                         </div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <div
+                          class="h5 mb-0 font-weight-bold text-gray-800"
+                          id="ProfitLoss"
+                        >
                           $-500.00
                         </div>
                       </div>
@@ -288,8 +297,12 @@
               <div class="col-xl-12 col-lg-20">
                 <div class="card shadow mb-4">
                   <!-- Card Header - Dropdown -->
-                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Winnings vs. Costs</h6>
+                  <div
+                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
+                  >
+                    <h6 class="m-0 font-weight-bold text-primary">
+                      Winnings vs. Costs
+                    </h6>
                   </div>
                   <!-- Card Body -->
                   <div class="card-body">
@@ -414,7 +427,7 @@
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fas fa-angle-up"></i>
     </a>
-  
+
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -428,13 +441,56 @@
     <script src="./js/renderer.js"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script> 
-   
+    <script src="vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+
+    <!--SCRIPT SQL-->
     
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        let nbonus = window.api.getNbonus();
+        let divNames = document.getElementById("nbonus");
+        let nameString = nbonus.map((elem) => {
+          return elem.nbonus;
+        });
+
+        divNames.innerHTML = nameString;
+      });
+
+      document.addEventListener("DOMContentLoaded", async () => {
+        let TotalCost = window.api.getTotalCost();
+        let divNames = document.getElementById("TotalCost");
+        let nameString = TotalCost.map((elem) => {
+          return elem.totalcost;
+        });
+
+        divNames.innerHTML = "$" + nameString;
+      });
+
+      document.addEventListener("DOMContentLoaded", async () => {
+        let TotalWin = window.api.getTotalWin();
+        let divNames = document.getElementById("TotalWin");
+        let nameString = TotalWin.map((elem) => {
+          return elem.totalwin;
+        });
+
+        divNames.innerHTML = "$" + nameString;
+      });
+
+      document.addEventListener("DOMContentLoaded", async () => {
+        let ProfitLoss = window.api.getProfitLoss();
+        let divNames = document.getElementById("ProfitLoss");
+        let nameString = ProfitLoss.map((elem) => {
+          return elem.ProfitLoss;
+        });
+
+        divNames.innerHTML = "$" + nameString;
+      });
+    </script>
+
 
   </body>
 </html>

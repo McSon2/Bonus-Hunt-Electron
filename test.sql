@@ -81,3 +81,5 @@ SELECT slots.provider, COUNT(*) as slots
 SELECT count(*) as NB_Bonus
     FROM hunt
 */
+
+SELECT ((SELECT SUM(payout) as totalwin FROM hunt)-(SELECT SUM(start) as totalcost FROM bonus_hunt)) as ProfitLoss
