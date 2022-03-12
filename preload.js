@@ -1,8 +1,8 @@
 const {ipcRenderer, contextBridge} = require("electron");
-const testMgr = require("./js/testmgr");
+const db = require("./js/db");
 
-const getNames = () => {
-    return testMgr.getNames();
+const getNbonus = () => {
+    return db.getNbonus();
 }
 
 const API = {
@@ -16,6 +16,5 @@ const API = {
 
 contextBridge.exposeInMainWorld("app", API)
 contextBridge.exposeInMainWorld("api", {
-    getNames: getNames
+    getNbonus: getNbonus
 })
-
