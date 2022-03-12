@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
     
     let nameString = names.map((elem) => {
         return elem.nbbonus;
-    }).join("<br />");
+    });
 
     console.log(nameString)
 
