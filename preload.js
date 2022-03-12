@@ -5,6 +5,10 @@ const getNbonus = () => {
     return db.getNbonus();
 }
 
+const getTotalCost = () => {
+    return db.getTotalCost();
+}
+
 const API = {
     window: {
         close: () => ipcRenderer.send("app/close"),
@@ -16,5 +20,6 @@ const API = {
 
 contextBridge.exposeInMainWorld("app", API)
 contextBridge.exposeInMainWorld("api", {
-    getNbonus: getNbonus
+    getNbonus: getNbonus,
+    getTotalCost: getTotalCost
 })
