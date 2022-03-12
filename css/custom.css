@@ -1,6 +1,8 @@
 #topMenu {
     -webkit-app-region: drag;
+    user-select: none;
     -webkit-user-select: none;
+    margin: 0 0 0 225px;
 }
 #topMenuBtns {
     position: absolute;
@@ -16,13 +18,20 @@
     -webkit-app-region: no-drag;
 }
 
-#closeBtn, #reduceBtn, #sizeBtn {
-}
-
 #reduceBtn:hover, #sizeBtn:hover {
     background-color: #333333;
 }
 
 #closeBtn:hover {
     background-color: #FF0000;
+}
+
+#BOD {
+    padding-top: 50px;
+}
+
+#plushunt {
+    position: absolute;
+    right: 15px;
+    top : 15px;
 }
