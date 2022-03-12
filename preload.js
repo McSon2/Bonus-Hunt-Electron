@@ -1,4 +1,9 @@
-const {ipcRenderer, contextBridge} = require("electron")
+const {ipcRenderer, contextBridge} = require("electron");
+const testMgr = require("./js/testmgr");
+
+const getNames = () => {
+    return testMgr.getNames();
+}
 
 const API = {
     window: {
@@ -8,4 +13,9 @@ const API = {
     }
 }
 
+
 contextBridge.exposeInMainWorld("app", API)
+contextBridge.exposeInMainWorld("api", {
+    getNames: getNames
+})
+

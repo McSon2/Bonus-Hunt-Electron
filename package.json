@@ -1,13 +1,9 @@
 {
   "name": "bonus_hunt",
   "version": "1.0.0",
-  "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
-    "rebuild": "electron-rebuild -f -w sqlite3",
-    "dev": "nf start -p 3001",
-    "postinstall": "electron-builder install-app-deps"
+    "start": "electron ."
   },
   "keywords": [],
   "author": "Maxime Saltet",
@@ -16,5 +12,17 @@
     "electron": "^17.1.1",
     "electron-builder": "^22.14.13",
     "electron-rebuild": "^3.2.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/McSon2/Bonus-Hunt-Electron.git"
+  },
+  "bugs": {
+    "url": "https://github.com/McSon2/Bonus-Hunt-Electron/issues"
+  },
+  "homepage": "https://github.com/McSon2/Bonus-Hunt-Electron#readme",
+  "description": "",
+  "dependencies": {
+    "better-sqlite3": "^7.5.0"
   }
 }
