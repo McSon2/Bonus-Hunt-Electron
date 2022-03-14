@@ -24,3 +24,8 @@ exports.getProfitLoss = () => {
     const res = stmt.all();
     return res;
 }
+
+exports.newHunt = (title,start,date) => {
+    const sql = db.prepare('INSERT INTO bonus_hunt (title,start,date) VALUES (:title, :start, :date)');
+    sql.run({title,start,date})
+}

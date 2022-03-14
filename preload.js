@@ -17,6 +17,10 @@ const getProfitLoss = () => {
     return db.getProfitLoss();
 }
 
+const newHunt = (title,start,date) => {
+    db.newHunt(title,start,date);
+}
+
 const API = {
     window: {
         close: () => ipcRenderer.send("app/close"),
@@ -31,5 +35,6 @@ contextBridge.exposeInMainWorld("api", {
     getNbonus: getNbonus,
     getTotalCost: getTotalCost,
     getTotalWin: getTotalWin,
-    getProfitLoss: getProfitLoss
+    getProfitLoss: getProfitLoss,
+    newHunt: newHunt
 })
