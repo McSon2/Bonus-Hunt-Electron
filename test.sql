@@ -97,3 +97,13 @@ SELECT title, start, date,(SELECT SUM(payout) FROM hunt where hunt.id_bonushunt 
 from bonus_hunt
 JOIN hunt on bonus_hunt.id = hunt.id_bonushunt 
 GROUP BY id
+
+SELECT (
+  (SELECT SUM(payout) FROM hunt where hunt.id_bonushunt = bonus_hunt.id)-(SELECT start FROM bonus_hunt where bonus_hunt.id = hunt.id_bonushunt)
+) as profitloss 
+from bonus_hunt
+JOIN hunt on bonus_hunt.id = hunt.id_bonushunt 
+GROUP BY id
+
+SELECT date
+FROM bonus_hunt
