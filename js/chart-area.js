@@ -30,14 +30,14 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 
 let date = window.api.date();
 let alldate = date.map((elem) => {
-  return elem.date; })
+  return elem.date; });
 //console.log("*** date =", date)
 //console.log("*** date =", alldate)
 
 let ProfitLoss = window.api.ProfitLoss();
 let allProfitLoss = ProfitLoss.map ((elem) => {
   return elem.profitloss;
-})
+});
 //console.log("*** ProfitLoss =", ProfitLoss)
 //console.log("*** ProfitLoss =", allProfitLoss)
 
