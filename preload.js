@@ -37,6 +37,10 @@ const deletehunt = (id) => {
     db.deletehunt(id);
 }
 
+const updatehunt = (title,start,date,id) => {
+    db.updatehunt(title,start,date,id);
+}
+
 const API = {
     window: {
         close: () => ipcRenderer.send("app/close"),
@@ -55,7 +59,8 @@ contextBridge.exposeInMainWorld("api", {
     getProfitLoss: getProfitLoss,
     newHunt: newHunt,
     date: date,
-    ProfitLoss: ProfitLoss,
     bonushunt: bonushunt,
-    deletehunt:deletehunt
+    deletehunt: deletehunt,
+    ProfitLoss: ProfitLoss,
+    updatehunt: updatehunt
 })
