@@ -39,7 +39,7 @@ let allProfitLoss = ProfitLoss.map ((elem) => {
   return elem.profitloss;
 });
 //console.log("*** ProfitLoss =", ProfitLoss)
-//console.log("*** ProfitLoss =", allProfitLoss)
+console.log("*** ProfitLoss =", allProfitLoss)
 
 
 
