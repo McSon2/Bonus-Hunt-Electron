@@ -107,3 +107,6 @@ GROUP BY id
 
 SELECT date
 FROM bonus_hunt
+
+SELECT title, start, date
+FROM bonus_hunt

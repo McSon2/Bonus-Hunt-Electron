@@ -344,6 +344,57 @@
               </div>
             </div>
             
+            <!-- Modal Modif hunt -->
+
+            <div class="modal fade show" id="UpdateHunt" aria-labelledby="titlemodaladdhunt" aria-modal="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="titlemodaladdhunt">Update Bonus Hunt</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="form-group">
+                      <label for="NameHunt">Name</label>
+                      <input class="form-control" type="text" id="UpdateNameHunt" placeholder="Bonus Hunt 500$" name="HuntName">
+                    </div>
+                    <div class="form-group">
+                      <label for="StartHunt">Start</label>
+                      <input class="form-control" type="number" min="0" max="10000000" step="1" id="UpdateStartHunt" placeholder="500" name="StartHunt">
+                    </div>
+                    <div class="form-group">
+                      <label for="DateHunt">Date</label>
+                      <input class="form-control" type="date" id="UpdateDateHunt" name="DateHunt">
+                    </div>
+                  </div>
+                  <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal" id="SaveHunt">Save</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Modal delete hunt -->
+
+            <div class="modal fade show" id="deleteHunt" aria-labelledby="titlemodaladdhunt" aria-modal="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="titlemoddalsupphunt">Remove this Hunt ?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <button type="submit" class="btn btn-primary deletethishunt" data-dismiss="modal" id="deletethishunt">Yes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <!-- Table -->
 
@@ -357,75 +408,17 @@
                     </button>
                   </div>
                   <div class="card-body p-0">
-                    <table class="table table-striped table-hover">
+                    <table class="table table-striped table-hover" id="tableBonushunt">
                       <thead>
                         <tr>
                           <th>Bonus Hunt Title</th>
                           <th>Start-cost</th>
-                          <th>Bonuses</th>
-                          <th>Profit/Loss</th>
-                          <th style="width: 180px"></th>
+                          <th>Date</th>
+                          <th>Actions</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>#3 start 1006</td>
-                          <td>$ 526.00</td>
-                          <td>22</td>
-                          <td>$ -315.57</td>
-                          <td class="text-center">
-                            <div class="btn-group">
-                              <a href="HTML/bonus.html" class="btn btn-warning"
-                                ><i class="fas fa-search"></i
-                              ></a>
-                              <button
-                                type="button"
-                                class="btn btn-info toggleEditModal"
-                                data-title="#3 start 1006,00$"
-                                data-start="526"
-                                data-huntid="5025"
-                              >
-                                <i class="fas fa-pen"></i>
-                              </button>
-                              <button
-                                type="button"
-                                class="btn btn-danger toggleTrashModal"
-                                data-huntid="5025"
-                              >
-                                <i class="fas fa-trash"></i>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>#3 start 720</td>
-                          <td>$ 720.00</td>
-                          <td>44</td>
-                          <td>$ -414.10</td>
-                          <td class="text-center">
-                            <div class="btn-group">
-                              <a href="HTML/bonus.html" class="btn btn-warning"
-                                ><i class="fas fa-search"></i
-                              ></a>
-                              <button
-                                type="button"
-                                class="btn btn-info toggleEditModal"
-                                data-title="#3 start 720"
-                                data-start="720"
-                                data-huntid="4811"
-                              >
-                                <i class="fas fa-pen"></i>
-                              </button>
-                              <button
-                                type="button"
-                                class="btn btn-danger toggleTrashModal"
-                                data-huntid="4811"
-                              >
-                                <i class="fas fa-trash"></i>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
+                        
                       </tbody>
                     </table>
                   </div>
@@ -481,6 +474,10 @@
     <!--SCRIPT SQL-->
 
     <script>
+
+      //widget
+
+      //nombre de bonus
       document.addEventListener("DOMContentLoaded", async () => {
         let nbonus = window.api.getNbonus();
         let divNames = document.getElementById("nbonus");
@@ -491,6 +488,7 @@
         divNames.innerHTML = nameString;
       });
 
+      //cout total
       document.addEventListener("DOMContentLoaded", async () => {
         let TotalCost = window.api.getTotalCost();
         let divNames = document.getElementById("TotalCost");
@@ -501,6 +499,7 @@
         divNames.innerHTML = "$" + nameString;
       });
 
+      //total win
       document.addEventListener("DOMContentLoaded", async () => {
         let TotalWin = window.api.getTotalWin();
         let divNames = document.getElementById("TotalWin");
@@ -511,6 +510,7 @@
         divNames.innerHTML = "$" + nameString;
       });
 
+      //profit loss
       document.addEventListener("DOMContentLoaded", async () => {
         let ProfitLoss = window.api.getProfitLoss();
         let divNames = document.getElementById("ProfitLoss");
@@ -521,8 +521,7 @@
         divNames.innerHTML = "$" + nameString;
       });
 
-      
-
+      //ajout d'un hunt
       const SaveHunt = document.getElementById("SaveHunt");
       SaveHunt.addEventListener('click', () => {
         const NameHunt = document.getElementById("NameHunt");
@@ -532,8 +531,90 @@
         const start = StartHunt.value;
         const date = DateHunt.value;
         window.api.newHunt(title,start,date);
-        
+        app.window.reload();
       })
+
+      //bonus hunt table
+      document.addEventListener("DOMContentLoaded", async () => {
+        let bonushunt = window.api.bonushunt();
+     
+        var tableBonushunt = document.getElementById("tableBonushunt")
+        var tableRows = tableBonushunt.querySelectorAll("thead > tr")
+
+        tableRows.forEach((el, i) => {
+          if(i > 0)
+            el.parentNode.removeChild(el);
+        });
+
+        bonushunt.forEach((el) => {
+          var row = tableBonushunt.insertRow(1);
+
+          var cell1 = row.insertCell(0);
+          var cell2 = row.insertCell(1);
+          var cell3 = row.insertCell(2);
+          var cell4 = row.insertCell(3);
+
+          cell1.innerHTML = el.title;
+          cell2.innerHTML = el.start;
+          cell3.innerHTML = el.date;
+          var idremove = "remove" + el.id;
+          cell4.innerHTML = 
+          '<div class="btn-group">\
+            <a href="HTML/bonus.html" class="btn btn-warning">\
+              <i class="fas fa-search"></i>\
+            </a>\
+            <button type="button"\
+              class="btn btn-info toggleEditModal"\
+              data-title="' + el.title +'"\
+              data-start="' + el.start +'"\
+              data-date="' + el.date +'"\
+              data-id="' + el.id +'">\
+              <i class="fas fa-pen"></i>\
+            </button>\
+            <button type="button"\
+              class="btn btn-danger toggleTrashModal"\
+              data-toggle="modal"\
+              data-target="#deleteHunt"\
+              data-whatever="'+ el.title +'"\
+              data-id="'+ el.id +'"\
+              id="'+ el.id +'"\
+              >\
+              <i class="fas fa-trash"></i>\
+            </button>\
+          </div>'
+          
+          //$('#deleteHunt').on('show.bs.modal', function (event) {
+            //var button = $(event.relatedTarget) 
+            //var title = button.data('whatever')
+            //var id = button.data('id') 
+            //var modal = $(this)
+            //modal.find('.modal-title').text('Remove this hunt : ' + title + '?')
+            //modal.find('.deletethishunt').attr('id',+ id)
+            //$("#"+id).click(function() {
+              //console.log("*** remove hunt :", id);
+              //window.api.deletehunt(id)
+              //app.window.reload();
+            //})
+         // })
+
+          var BtnYes = document.getElementById("deletethishunt");
+          var supp = document.getElementById(el.id);
+          var titlemoddal = document.getElementById("titlemoddalsupphunt");
+          supp.addEventListener('click', () => {
+            titlemoddal.innerHTML = "Remove this hunt ?" + "<br>" + el.title;
+            BtnYes.id = el.id;
+            BtnYes.addEventListener('click', () => {
+              window.api.deletehunt(BtnYes.id);
+              app.window.reload();
+            })
+          })
+
+          
+        })
+      });
+
+      
+      
     </script>
 
 

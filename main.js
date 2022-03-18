@@ -2,6 +2,7 @@ const { app, BrowserWindow, ipcMain } = require("electron");
 const { dirname } = require("path");
 const path = require("path");
 const fs = require("fs");
+const { electron } = require("process");
 const ipc = ipcMain;
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
 
@@ -33,6 +34,10 @@ function createWindow() {
   
   ipc.on("app/minimize", () => {
     win.minimize()
+  })
+
+  ipc.on("app/reload", () => {
+    win.reload()
   })
   
   ipc.on("app/size", () => {

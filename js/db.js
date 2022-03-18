@@ -41,3 +41,14 @@ exports.ProfitLoss = () => {
     const res = stmt.all();
     return res;
 }
+
+exports.bonushunt = () => {
+    const stmt = db.prepare('SELECT * FROM bonus_hunt');
+    const res = stmt.all();
+    return res;
+}
+
+exports.deletehunt = (id) => {
+    const stmt = db.prepare('DELETE from bonus_hunt WHERE id=:id');
+    stmt.run ({id})
+}

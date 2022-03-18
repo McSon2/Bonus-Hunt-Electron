@@ -29,11 +29,20 @@ const ProfitLoss = () => {
     return db.ProfitLoss();
 }
 
+const bonushunt = () => {
+    return db.bonushunt();
+}
+
+const deletehunt = (id) => {
+    db.deletehunt(id);
+}
+
 const API = {
     window: {
         close: () => ipcRenderer.send("app/close"),
         minimize: () => ipcRenderer.send("app/minimize"),
         size: () => ipcRenderer.send("app/size"),
+        reload: () => ipcRenderer.send("app/reload")
     }
 }
 
@@ -46,5 +55,7 @@ contextBridge.exposeInMainWorld("api", {
     getProfitLoss: getProfitLoss,
     newHunt: newHunt,
     date: date,
-    ProfitLoss: ProfitLoss
+    ProfitLoss: ProfitLoss,
+    bonushunt: bonushunt,
+    deletehunt:deletehunt
 })
