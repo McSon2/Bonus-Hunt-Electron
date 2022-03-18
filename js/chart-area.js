@@ -39,9 +39,8 @@ let allProfitLoss = ProfitLoss.map ((elem) => {
   return elem.profitloss;
 });
 //console.log("*** ProfitLoss =", ProfitLoss)
-console.log("*** ProfitLoss =", allProfitLoss)
 
-
+allProfitLoss = allProfitLoss.map((elem, index) => allProfitLoss.slice(0,index + 1).reduce((a,b) => a + b))
 
 
 // Area Chart Example
