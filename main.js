@@ -3,6 +3,7 @@ const { dirname } = require("path");
 const path = require("path");
 const fs = require("fs");
 const { electron } = require("process");
+const { URLSearchParams } = require("url");
 const ipc = ipcMain;
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
 

@@ -285,31 +285,7 @@
 
             <!-- End WIDGET -->
 
-            <!-- Winnings vs. Costs -->
-
-            <div class="row">
-              <!-- Area Chart -->
-              <div class="col-xl-12 col-lg-20">
-                <div class="card shadow mb-4">
-                  <!-- Card Header - Dropdown -->
-                  <div
-                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
-                  >
-                    <h6 class="m-0 font-weight-bold text-primary">
-                      Profit / Loss
-                    </h6>
-                  </div>
-                  <!-- Card Body -->
-                  <div class="card-body">
-                    <div class="chart-area">
-                      <canvas id="myAreaChart"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- End Winnings vs. Costs -->
+            
             
             <!-- Modal Ajout hunt -->
 
@@ -466,11 +442,6 @@
     <script src="./js/titlebar.js"></script>
     <script src="./js/renderer.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/chart-area.js"></script>
 
     <!--SCRIPT SQL-->
 
@@ -647,21 +618,25 @@
               const start = updatestarthunt.value;
               const date = updatedatehunt.value;
               window.api.updatehunt(title,start,date,updateyes.id);
-              app.window.reload();
+              //app.window.reload();
             })
           })
 
           var redirect = document.getElementById("htmlhunt");
           redirect.addEventListener('click', (htmlid) => {
-            location.href = "./bonus.html" + "?id=" + el.id
-          })
-
+            location.href = "./HTML/bonus.html" + "?id=" + el.id
+          }) 
         })
-        
       });
 
-      
-      
+
+      document.addEventListener("DOMContentLoaded", async () => {
+        const queryString = window.location.search
+        const urlParams = new URLSearchParams(queryString);
+        const id = urlParams.get('id')
+        console.log(id)
+        });
+
     </script>
 
 
