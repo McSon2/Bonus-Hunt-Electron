@@ -61,6 +61,23 @@ const hunt = (id) => {
     return db.hunt(id);
 }
 
+const slots = () => {
+    return db.slots();
+}
+
+const newbonus = (idhunt,slotid,betsize) => {
+    db.newbonus(idhunt,slotid,betsize);
+}
+
+const deletebonus = (id) => {
+    db.deletebonus(id);
+}
+
+const getidhunt = (title) => {
+    db.getidhunt(title);
+    return db.getidhunt(title);
+}
+
 
 const API = {
     window: {
@@ -87,5 +104,9 @@ contextBridge.exposeInMainWorld("api", {
     ProfitLossbyid: ProfitLossbyid,
     CountBonusbyid: CountBonusbyid,
     startbyid: startbyid,
-    hunt: hunt
+    hunt: hunt,
+    slots: slots,
+    newbonus: newbonus,
+    deletebonus: deletebonus,
+    getidhunt: getidhunt
 })

@@ -77,7 +77,29 @@ exports.startbyid = (id) => {
 }
 
 exports.hunt = (id) => {
-    const stmt = db.prepare('SELECT hunt.id_bonushunt, slots.slot, slots.provider, hunt.bet_size, hunt.payout, hunt.multiplier from hunt join slots on hunt.id_slots = slots.id where id_bonushunt=:id');
+    const stmt = db.prepare('SELECT hunt.id_bonushunt, hunt.id_slots as id, slots.slot, slots.provider, hunt.bet_size, hunt.payout, hunt.multiplier from hunt join slots on hunt.id_slots = slots.id where id_bonushunt=:id');
     const res = stmt.all({id});
+    return res
+}
+
+exports.slots = () => {
+    const stmt = db.prepare('select id, slot FROM slots');
+    const res = stmt.all();
+    return res
+}
+
+exports.newbonus = (idhunt,slotid,betsize) => {
+    const sql = db.prepare('INSERT INTO hunt (id_bonushunt,id_slots,bet_size) VALUES (:idhunt, :slotid, :betsize)');
+    sql.run({idhunt,slotid,betsize})
+}
+
+exports.deletebonus = (id) => {
+    const stmt = db.prepare('DELETE from hunt WHERE id_slots=:id');
+    stmt.run ({id})
+}
+
+exports.getidhunt = (title) => {
+    const stmt = db.prepare('SELECT id from bonus_hunt where title=:title');
+    const res = stmt.all({title});
     return res
 }

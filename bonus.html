@@ -22,7 +22,14 @@
       href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
       rel="stylesheet"
     />
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet"/>
+    <link
+      href="vendor/datatables/dataTables.bootstrap4.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="vendor/select2/select2.min.css"
+      rel="stylesheet"
+    />
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet" />
@@ -68,7 +75,6 @@
                 Interface
             </div>
             -->
-
 
         <!--
           <li class="nav-item">
@@ -128,7 +134,6 @@
         <hr class="sidebar-divider" />
 
         <!-- Sidebar Toggler (Sidebar) -->
-        
       </ul>
       <!-- End of Sidebar -->
 
@@ -137,7 +142,10 @@
         <!-- Main Content -->
         <div id="content">
           <!-- Topbar -->
-          <nav id="topMenu" class="navbar navbar-expand navbar-dark bg-light topbar static-top shadow-5-strong fixed-top">
+          <nav
+            id="topMenu"
+            class="navbar navbar-expand navbar-dark bg-light topbar static-top shadow-5-strong fixed-top"
+          >
             <!-- Sidebar Toggle (Topbar) -->
             <button
               id="sidebarToggleTop"
@@ -165,7 +173,10 @@
           <!-- End of Topbar -->
 
           <!-- Begin Page Content -->
-          <div class="container-fluid justify-content-center col-sm-12" id="BOD">
+          <div
+            class="container-fluid justify-content-center col-sm-12"
+            id="BOD"
+          >
             <!-- Page Heading -->
 
             <div
@@ -258,75 +269,144 @@
                   </div>
                 </div>
               </div>
-
-              
             </div>
 
             <!-- End WIDGET -->
 
-            
-            
             <!-- Modal Ajout hunt -->
 
-            <div class="modal fade show" id="PlusHunt" aria-labelledby="titlemodaladdhunt" aria-modal="true">
+            <div
+              class="modal fade show"
+              id="PlusHunt"
+              aria-labelledby="titlemodaladdhunt"
+              aria-modal="true"
+            >
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="titlemodaladdhunt">Create Bonus Hunt</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <h5 class="modal-title" id="titlemodaladdhunt">
+                      Create Bonus Hunt
+                    </h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
                     <div class="form-group">
-                      <label for="NameHunt">Name</label>
-                      <input class="form-control" type="text" id="NameHunt" placeholder="Bonus Hunt 500$" name="HuntName">
+                      <label>Choose slot *</label>
+                      <select
+                        name="slot"
+                        class="form-control select2 select2-hidden-accessible"
+                        style="width: 100%"
+                        id="select2">
+                        <option selected="selected" id="select"></option>
+                      </select>
                     </div>
                     <div class="form-group">
-                      <label for="StartHunt">Start</label>
-                      <input class="form-control" type="number" min="0" max="10000000" step="1" id="StartHunt" placeholder="500" name="StartHunt">
-                    </div>
-                    <div class="form-group">
-                      <label for="DateHunt">Date</label>
-                      <input class="form-control" type="date" id="DateHunt" name="DateHunt">
+                      <label for="betsize">Bet size</label>
+                      <input
+                        class="form-control"
+                        type="number"
+                        min="0"
+                        max="10000000"
+                        step="1"
+                        id="betsize"
+                        placeholder="0.5"
+                        name="StartHunt"
+                      />
                     </div>
                   </div>
                   <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" data-dismiss="modal" id="SaveHunt">Save</button>
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button
+                      type="submit"
+                      class="btn btn-primary"
+                      data-dismiss="modal"
+                      id="SaveHunt"
+                    >
+                      Save
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
-            
+
             <!-- Modal Modif hunt -->
 
-            <div class="modal fade show" id="UpdateHunt" aria-labelledby="titlemodaladdhunt" aria-modal="true">
+            <div
+              class="modal fade show"
+              id="UpdateBonus"
+              aria-labelledby="titlemodaladdhunt"
+              aria-modal="true"
+            >
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="titlemodaladdhunt">Update Bonus Hunt</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <h5 class="modal-title" id="titlemodaladdhunt">
+                      Update Bet size
+                    </h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
                     <div class="form-group">
-                      <label for="NameHunt">Name</label>
-                      <input class="form-control" type="text" id="updatenamehunt" placeholder="Bonus Hunt 500$" name="HuntName">
+                      <label for="NameHunt">Slot</label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        id="updateslot"
+                        placeholder="Bonus Hunt 500$"
+                        name="HuntName"
+                        readonly
+                      />
                     </div>
                     <div class="form-group">
-                      <label for="StartHunt">Start</label>
-                      <input class="form-control" type="number" min="0" max="10000000" step="1" id="updatestarthunt" placeholder="500" name="StartHunt">
-                    </div>
-                    <div class="form-group">
-                      <label for="DateHunt">Date</label>
-                      <input class="form-control" type="date" id="updatedatehunt" name="DateHunt">
+                      <label for="StartHunt">Bet size</label>
+                      <input
+                        class="form-control"
+                        type="number"
+                        min="0"
+                        max="10000000"
+                        step="1"
+                        id="updatebetsize"
+                        placeholder="500"
+                        name="StartHunt"
+                      />
                     </div>
                   </div>
                   <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" data-dismiss="modal" id="updatehunt">Save</button>
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button
+                      type="submit"
+                      class="btn btn-primary"
+                      data-dismiss="modal"
+                      id="updatebonus"
+                    >
+                      Save
+                    </button>
                   </div>
                 </div>
               </div>
@@ -338,14 +418,14 @@
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="titlemoddalsupphunt">Remove this Hunt ?</h5>
+                    <h5 class="modal-title" id="titlemoddalsuppbonus">Remove this Hunt ?</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                    <button type="submit" class="btn btn-primary deletethishunt" data-dismiss="modal" id="deletethishunt">Yes</button>
+                    <button type="submit" class="btn btn-primary deletethisbonus" data-dismiss="modal" id="deletethisbonus">Yes</button>
                   </div>
                 </div>
               </div>
@@ -356,14 +436,23 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="card">
-                  <div class="card-header ">
+                  <div class="card-header">
                     <h3 class="card-title float-left">Bonus Hunts</h3>
-                    <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#PlusHunt" id="plushunt">
+                    <button
+                      type="button"
+                      class="btn btn-success float-right"
+                      data-toggle="modal"
+                      data-target="#PlusHunt"
+                      id="plushunt"
+                    >
                       <i class="fas fa-plus-circle"></i>
                     </button>
                   </div>
                   <div class="card-body p-0">
-                    <table class="table table-striped table-hover" id="tableBonushunt">
+                    <table
+                      class="table table-striped table-hover"
+                      id="tableBonushunt"
+                    >
                       <thead class="thead-light">
                         <tr>
                           <th scope="col">Bonus</th>
@@ -371,11 +460,16 @@
                           <th scope="col">Bet size</th>
                           <th scope="col">Payout</th>
                           <th scope="col">Multiplier</th>
-                          <th scope="col" style="width:180px" class="text-center">Actions</th>
+                          <th
+                            scope="col"
+                            style="width: 180px"
+                            class="text-center"
+                          >
+                            Actions
+                          </th>
                         </tr>
                       </thead>
-                      <tbody>
-                      </tbody>
+                      <tbody></tbody>
                     </table>
                   </div>
                 </div>
@@ -402,8 +496,6 @@
     </div>
     <!-- End of Page Wrapper -->
 
-
-
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fas fa-angle-up"></i>
@@ -418,42 +510,79 @@
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="vendor/select2/select2.min.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
     <script src="./js/titlebar.js"></script>
     <script src="./js/renderer.js"></script>
 
-
     <!--SCRIPT SQL-->
 
     <script>
+      //Select2
+      document.addEventListener("DOMContentLoaded", async () => {
+        var slots = window.api.slots()
+ 
+        var slot = $.map(slots, function (obj) {
+          obj.text = obj.text || obj.slot;
+
+          return obj
+        })
+
+        $(".select2").select2({
+          data: slot
+        })   
+        
+      })
+
+
+
+      //ajout d'un hunt
+      const SaveHunt = document.getElementById("SaveHunt");
+      SaveHunt.addEventListener("click", () => {
+        const select = document.getElementById("select2")
+        const slotid = select.value
+        const betsizebonus = document.getElementById("betsize")
+        const betsize = betsizebonus.value
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const idhunt = urlParams.get("id");
+
+        window.api.newbonus(idhunt,slotid,betsize);
+        app.window.reload();
+      });
+
+
+
 
       //widget
 
       //profit/loss
       document.addEventListener("DOMContentLoaded", async () => {
-        const queryString = window.location.search
+        const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
-        const id = urlParams.get('id')
-        
+        const id = urlParams.get("id");
+
         let profitloss = window.api.ProfitLossbyid(id);
         let divNames = document.getElementById("profitloss");
-        
+
         let nameString = profitloss.map((elem) => {
-          var num = elem.profitloss
-          num = num.toFixed(2)
+          var num = elem.profitloss;
+          if (num !== null) {
+          num = num.toFixed(2);}
           return num;
+          
         });
-        
+
         divNames.innerHTML = "$ " + nameString;
       });
 
       //nb bonus
       document.addEventListener("DOMContentLoaded", async () => {
-        const queryString = window.location.search
+        const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
-        const id = urlParams.get('id')
+        const id = urlParams.get("id");
         let bonuscount = window.api.CountBonusbyid(id);
         let divNames = document.getElementById("bonuscount");
         let nameString = bonuscount.map((elem) => {
@@ -465,15 +594,14 @@
 
       //start
       document.addEventListener("DOMContentLoaded", async () => {
-        const queryString = window.location.search
+        const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
-        const id = urlParams.get('id')
-        
+        const id = urlParams.get("id");
+
         let startcost = window.api.startbyid(id);
         let divNames = document.getElementById("startcost");
         let nameString = startcost.map((elem) => {
-          return elem.start
-          
+          return elem.start;
         });
 
         divNames.innerHTML = "$ " + nameString;
@@ -481,40 +609,32 @@
 
       
 
-      //ajout d'un hunt
-      const SaveHunt = document.getElementById("SaveHunt");
-      SaveHunt.addEventListener('click', () => {
-        const NameHunt = document.getElementById("NameHunt");
-        const StartHunt = document.getElementById("StartHunt");
-        const DateHunt = document.getElementById("DateHunt");
-        const title = NameHunt.value;
-        const start = StartHunt.value;
-        const date = DateHunt.value;
-        window.api.newHunt(title,start,date);
-        app.window.reload();
-      })
-
       //bonus hunt table
       document.addEventListener("DOMContentLoaded", async () => {
-        const queryString = window.location.search
+        const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
-        const id = urlParams.get('id')
+        const id = urlParams.get("id");
         let bonushunt = window.api.hunt(id);
 
-        var tableBonushuntbody = document.getElementById("tableBonushunt").getElementsByTagName("tbody")[0]
-        var tableBonushunt = document.getElementById("tableBonushunt")
-        var tableRows = tableBonushunt.querySelectorAll("thead > tr")
-        
+        var tableBonushuntbody = document
+          .getElementById("tableBonushunt")
+          .getElementsByTagName("tbody")[0];
+        var tableBonushunt = document.getElementById("tableBonushunt");
+        var tableRows = tableBonushunt.querySelectorAll("thead > tr");
+
         tableRows.forEach((el, i) => {
-          if(i > 0)
-            el.parentNode.removeChild(el);
+          if (i > 0) el.parentNode.removeChild(el);
         });
 
+        
         bonushunt.forEach((el) => {
           var row = tableBonushuntbody.insertRow(0);
-          var multiplier = el.multiplier
-          multiplier = multiplier.toFixed(2)
-
+          var multiplier = el.multiplier;
+          if (multiplier !== null) {
+            multiplier = multiplier.toFixed(2);
+          }
+          
+          
           var cell1 = row.insertCell(0);
           var cell2 = row.insertCell(1);
           var cell3 = row.insertCell(2);
@@ -522,26 +642,26 @@
           var cell5 = row.insertCell(4);
           var cell6 = row.insertCell(5);
 
-          row.setAttribute('scope', "row")
-          cell6.setAttribute('class', "text-center")
-          cell1.setAttribute('text-transform', "lowercase")
+          row.setAttribute("scope", "row");
+          cell6.setAttribute("class", "text-center");
+          cell1.setAttribute("text-transform", "lowercase");
 
           cell1.innerHTML = el.slot;
           cell2.innerHTML = el.provider;
           cell3.innerHTML = el.bet_size;
           cell4.innerHTML = el.payout;
           cell5.innerHTML = multiplier;
-          cell6.innerHTML = 
+          cell6.innerHTML =
           '<div class="btn-group">\
             <button type="button"\
               class="btn btn-info toggleEditModal"\
               data-toggle="modal"\
-              data-target="#UpdateHunt"\
-              data-title="' + el.title +'"\
-              data-start="' + el.start +'"\
-              data-date="' + el.date +'"\
+              data-target="#UpdateBonus"\
+              data-title="' + el.slot +'"\
+              data-start="' + el.bet_size +'"\
+              data-payout="' + el.payout +'"\
               data-id="' + el.id +'"\
-              id="'+ el.id +'"\
+              id="deletebonus"\
               >\
               <i class="fas fa-pen"></i>\
             </button>\
@@ -549,7 +669,7 @@
               class="btn btn-danger toggleTrashModal"\
               data-toggle="modal"\
               data-target="#deleteHunt"\
-              data-whatever="'+ el.title +'"\
+              data-whatever="'+ el.slot +'"\
               data-id="'+ el.id +'"\
               id="'+ el.id +'"\
               >\
@@ -557,76 +677,57 @@
             </button>\
           </div>'
           
-          //$('#deleteHunt').on('show.bs.modal', function (event) {
-            //var button = $(event.relatedTarget) 
-            //var title = button.data('whatever')
-            //var id = button.data('id') 
-            //var modal = $(this)
-            //modal.find('.modal-title').text('Remove this hunt : ' + title + '?')
-            //modal.find('.deletethishunt').attr('id',+ id)
-            //$("#"+id).click(function() {
-              //console.log("*** remove hunt :", id);
-              //window.api.deletehunt(id)
-              //app.window.reload();
-            //})
-         // })
+          // delete bonus
 
-          var deleteyes = document.getElementById("deletethishunt");
+          var deleteyes = document.getElementById("deletethisbonus");
           var btndelete = document.getElementById(el.id);
-          var titlemoddal = document.getElementById("titlemoddalsupphunt");
-          btndelete.addEventListener('click', () => {
-            titlemoddal.innerHTML = "Remove this hunt ?" + "<br>" + el.title;
+          var titlemoddal = document.getElementById("titlemoddalsuppbonus");
+          
+          btndelete.addEventListener("click", () => {
+            titlemoddal.innerHTML = "Remove this bonus ?" + "<br>" + el.slot;
             deleteyes.id = el.id;
             deleteyes.addEventListener('click', () => {
-              window.api.deletehunt(deleteyes.id);
+              window.api.deletebonus(deleteyes.id);
+              app.window.reload();
+            })
+          });
+
+          // update bonus
+
+          var updateyes = document.getElementById("updatebonus");
+          var btnupdate = document.getElementById(el.id);
+          var updateslot = document.getElementById("updateslot");
+          var updatebetsize = document.getElementById("updatebetsize");
+
+          btnupdate.addEventListener('click', () => {
+            
+            updateslot.setAttribute('value',el.slot);
+            updatebetsize.setAttribute('value',el.bet_size);
+            updateyes.id = el.id;
+            updateyes.addEventListener('click', () => {
+              const slot = updateslot.value;
+              const bet_size = updatebetsize.value;
+              window.api.updatebonus(slot,bet_size);
               app.window.reload();
             })
           })
 
-          var updateyes = document.getElementById("updatehunt");
-          var btnupdate = document.getElementById(el.id);
-          var updatenamehunt = document.getElementById("updatenamehunt");
-          var updatestarthunt = document.getElementById("updatestarthunt");
-          var updatedatehunt = document.getElementById("updatedatehunt");
-          btnupdate.addEventListener('click', () => {
-            var dates = el.date
-            var formatdate = dates.split("/").reverse().join("-")
-            updatenamehunt.setAttribute('value',el.title);
-            updatestarthunt.setAttribute('value',el.start);
-            updatedatehunt.setAttribute('value',formatdate);
-            updateyes.id = el.id;
-            updateyes.addEventListener('click', () => {
-              const title = updatenamehunt.value;
-              const start = updatestarthunt.value;
-              const date = updatedatehunt.value;
-              window.api.updatehunt(title,start,date,updateyes.id);
-              //app.window.reload();
-            })
-          })
-
-          
-        })
-        $('#tableBonushunt').DataTable();
+        });
+        $("#tableBonushunt").DataTable();
       });
 
-
       document.addEventListener("DOMContentLoaded", async () => {
-        const queryString = window.location.search
+        const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
-        const id = urlParams.get('id')
-        const string = urlParams.get('title')
-        const string2 = string.split("_").join(" ")
-        const a = "#"
-        const title = a.concat(string2)
+        const id = urlParams.get("id");
+        const string = urlParams.get("title");
+        const string2 = string.split("_").join(" ");
+        const a = "#";
+        const title = a.concat(string2);
 
-        var titlepage = document.getElementById("titrepage")
-        titlepage.innerHTML = "Hunt : " + title
-        });
-
-      
-
+        var titlepage = document.getElementById("titrepage");
+        titlepage.innerHTML = "Hunt : " + title;
+      });
     </script>
-
-
   </body>
 </html>
