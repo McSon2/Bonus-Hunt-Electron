@@ -41,6 +41,27 @@ const updatehunt = (title,start,date,id) => {
     db.updatehunt(title,start,date,id);
 }
 
+const ProfitLossbyid = (id) => {
+    db.ProfitLossbyid(id);
+    return db.ProfitLossbyid(id);
+}
+
+const CountBonusbyid = (id) => {
+    db.CountBonusbyid(id);
+    return db.CountBonusbyid(id);
+}
+
+const startbyid = (id) => {
+    db.startbyid(id);
+    return db.startbyid(id);
+}
+
+const hunt = (id) => {
+    db.hunt(id);
+    return db.hunt(id);
+}
+
+
 const API = {
     window: {
         close: () => ipcRenderer.send("app/close"),
@@ -62,5 +83,9 @@ contextBridge.exposeInMainWorld("api", {
     bonushunt: bonushunt,
     deletehunt: deletehunt,
     ProfitLoss: ProfitLoss,
-    updatehunt: updatehunt
+    updatehunt: updatehunt,
+    ProfitLossbyid: ProfitLossbyid,
+    CountBonusbyid: CountBonusbyid,
+    startbyid: startbyid,
+    hunt: hunt
 })

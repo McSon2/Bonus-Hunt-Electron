@@ -98,11 +98,11 @@ from bonus_hunt
 JOIN hunt on bonus_hunt.id = hunt.id_bonushunt 
 GROUP BY id
 
-SELECT (
+SELECT id, (
   (SELECT SUM(payout) FROM hunt where hunt.id_bonushunt = bonus_hunt.id)-(SELECT start FROM bonus_hunt where bonus_hunt.id = hunt.id_bonushunt)
 ) as profitloss 
 from bonus_hunt
-JOIN hunt on bonus_hunt.id = hunt.id_bonushunt 
+JOIN hunt on bonus_hunt.id = hunt.id_bonushunt
 GROUP BY id
 
 SELECT date
@@ -131,10 +131,33 @@ JOIN hunt on bonus_hunt.id = hunt.id_bonushunt
 GROUP BY id
 
 
-
+SELECT id, (
+  (SELECT SUM(payout) FROM hunt where hunt.id_bonushunt = bonus_hunt.id)-(SELECT start FROM bonus_hunt where bonus_hunt.id = hunt.id_bonushunt)
+) as profitloss 
+from bonus_hunt
+JOIN hunt on bonus_hunt.id = hunt.id_bonushunt 
+WHERE id = 1
+GROUP BY id
 
 
 
 
 
 SELECT title, start,date,(Select count(*) from hunt where hunt.id_bonushunt = bonus_hunt.id) as nbbonus, ((SELECT SUM(payout) FROM hunt where hunt.id_bonushunt = bonus_hunt.id)-(SELECT start FROM bonus_hunt where bonus_hunt.id = hunt.id_bonushunt)) as profitloss from bonus_hunt JOIN hunt on bonus_hunt.id = hunt.id_bonushunt GROUP BY id
+
+
+SELECT id, ((SELECT SUM(payout) FROM hunt where hunt.id_bonushunt = bonus_hunt.id)-(SELECT start FROM bonus_hunt where bonus_hunt.id = hunt.id_bonushunt)) as profitloss from bonus_hunt JOIN hunt on bonus_hunt.id = hunt.id_bonushunt WHERE id=1 GROUP BY id
+
+SELECT id_bonushunt, count(*) as NB_Bonus FROM hunt where id_bonushunt=1
+
+SELECT start FROM bonus_hunt where id=1
+
+
+SELECT hunt.id_bonushunt, slots.slot, slots.provider, hunt.bet_size, hunt.payout, hunt.multiplier
+from hunt
+join slots on hunt.id_slots = slots.id
+where id_bonushunt = 1
+
+
+
+

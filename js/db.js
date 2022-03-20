@@ -57,3 +57,27 @@ exports.updatehunt = (title,start,date,id) => {
     const sql = db.prepare('UPDATE bonus_hunt SET title=:title, start=:start, date=:date WHERE id=:id');
     sql.run({title,start,date,id})
 }
+
+exports.ProfitLossbyid = (id) => {
+    const stmt = db.prepare('SELECT id, ((SELECT SUM(payout) FROM hunt where hunt.id_bonushunt = bonus_hunt.id)-(SELECT start FROM bonus_hunt where bonus_hunt.id = hunt.id_bonushunt)) as profitloss from bonus_hunt JOIN hunt on bonus_hunt.id = hunt.id_bonushunt WHERE id=:id GROUP BY id');
+    const res = stmt.all({id});
+    return res
+}
+
+exports.CountBonusbyid = (id) => {
+    const stmt = db.prepare('SELECT count(*) as NB_Bonus FROM hunt where id_bonushunt=:id');
+    const res = stmt.all({id});
+    return res
+}
+
+exports.startbyid = (id) => {
+    const stmt = db.prepare('SELECT start FROM bonus_hunt where id=:id');
+    const res = stmt.all({id});
+    return res
+}
+
+exports.hunt = (id) => {
+    const stmt = db.prepare('SELECT hunt.id_bonushunt, slots.slot, slots.provider, hunt.bet_size, hunt.payout, hunt.multiplier from hunt join slots on hunt.id_slots = slots.id where id_bonushunt=:id');
+    const res = stmt.all({id});
+    return res
+}

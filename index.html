@@ -22,6 +22,7 @@
       href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
       rel="stylesheet"
     />
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet"/>
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet" />
@@ -68,58 +69,60 @@
             </div>
             -->
 
-        <li class="nav-item">
-          <a class="nav-link" href="HTML/bonushunt.html">
-            <i class="nav-icon fas fa-bullseye"></i>
-            <span>Bonus Hunts</span></a
-          >
-        </li>
+            
+        <!--      
+          <li class="nav-item">
+            <a class="nav-link" href="HTML/bonushunt.html">
+              <i class="nav-icon fas fa-bullseye"></i>
+              <span>Bonus Hunts</span></a
+            >
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="HTML/tournaments.html">
-            <i class="nav-icon fas fa-chess"></i>
-            <span>Tournaments</span></a
-          >
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="HTML/tournaments.html">
+              <i class="nav-icon fas fa-chess"></i>
+              <span>Tournaments</span></a
+            >
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="HTML/widgets.html">
-            <i class="nav-icon fas fa-th"></i>
-            <span> Streaming Widgets </span>
-          </a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="HTML/widgets.html">
+              <i class="nav-icon fas fa-th"></i>
+              <span> Streaming Widgets </span>
+            </a>
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="HTML/setwidgets.html">
-            <i class="nav-icon fas fa-cog"></i>
-            <span> Widgets Settings </span>
-          </a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="HTML/setwidgets.html">
+              <i class="nav-icon fas fa-cog"></i>
+              <span> Widgets Settings </span>
+            </a>
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="HTML/stats.html">
-            <i class="nav-icon fas fa-chart-line"></i>
-            <span> Statistics </span>
-          </a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="HTML/stats.html">
+              <i class="nav-icon fas fa-chart-line"></i>
+              <span> Statistics </span>
+            </a>
+          </li>
 
-        <!-- Nav Item - Pages Collapse Menu 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
-                    </div>
-                </div>
-            </li>
+          Nav Item - Pages Collapse Menu 
+              <li class="nav-item">
+                  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                      aria-expanded="true" aria-controls="collapseTwo">
+                      <i class="fas fa-fw fa-cog"></i>
+                      <span>Components</span>
+                  </a>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                      <div class="bg-white py-2 collapse-inner rounded">
+                          <h6 class="collapse-header">Custom Components:</h6>
+                          <a class="collapse-item" href="buttons.html">Buttons</a>
+                          <a class="collapse-item" href="cards.html">Cards</a>
+                      </div>
+                  </div>
+              </li>
 
-            -->
+        -->
 
         <!-- Divider -->
         <hr class="sidebar-divider" />
@@ -457,9 +460,12 @@
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
@@ -509,8 +515,8 @@
           num = num.toFixed(2)
           return num;
         });
-
-        divNames.innerHTML = "$" + nameString;
+ 
+        divNames.innerHTML = "$ " + nameString;
       });
 
       //profit loss
@@ -523,7 +529,7 @@
           return num;
         });
 
-        divNames.innerHTML = "$" + nameString;
+        divNames.innerHTML = "$ " + nameString;
       });
 
       //ajout d'un hunt
@@ -539,8 +545,11 @@
         app.window.reload();
       })
 
+      
+
       //bonus hunt table
       document.addEventListener("DOMContentLoaded", async () => {
+
         let bonushunt = window.api.bonushunt();
         
         var tableBonushuntbody = document.getElementById("tableBonushunt").getElementsByTagName("tbody")[0]
@@ -652,12 +661,18 @@
           })
 
           var redirect = document.getElementById("htmlhunt");
-          redirect.addEventListener('click', (htmlid) => {
-            location.href = "./bonus.html" + "?id=" + el.id
+          var string = el.title
+          var string2 = string.replace("#", "")
+          var title = string2.split(" ").join("_")
+          redirect.addEventListener('click', () => {
+            location.href = "./bonus.html" + "?id=" + el.id + "&title=" + title
           })
+
+          
 
         })
         
+        $('#tableBonushunt').DataTable();
       });
 
       
