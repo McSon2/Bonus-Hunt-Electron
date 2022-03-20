@@ -611,7 +611,7 @@
               data-start="' + el.start +'"\
               data-date="' + el.date +'"\
               data-id="' + el.id +'"\
-              id="'+ el.id +'"\
+              id="id:'+ el.id +'"\
               >\
               <i class="fas fa-pen"></i>\
             </button>\
@@ -641,20 +641,9 @@
             //})
          // })
 
-          var deleteyes = document.getElementById("deletethishunt");
-          var btndelete = document.getElementById(el.id);
-          var titlemoddal = document.getElementById("titlemoddalsupphunt");
-          btndelete.addEventListener('click', () => {
-            titlemoddal.innerHTML = "Remove this hunt ?" + "<br>" + el.title;
-            deleteyes.id = el.id;
-            deleteyes.addEventListener('click', () => {
-              window.api.deletehunt(deleteyes.id);
-              app.window.reload();
-            })
-          })
-
-          var updateyes = document.getElementById("updatehunt");
-          var btnupdate = document.getElementById(el.id);
+         var test = "id:"+el.id
+         var updateyes = document.getElementById("updatehunt");
+          var btnupdate = document.getElementById(test)
           var updatenamehunt = document.getElementById("updatenamehunt");
           var updatestarthunt = document.getElementById("updatestarthunt");
           var updatedatehunt = document.getElementById("updatedatehunt");
@@ -673,6 +662,20 @@
               app.window.reload();
             })
           })
+
+          var deleteyes = document.getElementById("deletethishunt");
+          var btndelete = document.getElementById(el.id);
+          var titlemoddal = document.getElementById("titlemoddalsupphunt");
+          btndelete.addEventListener('click', () => {
+            titlemoddal.innerHTML = "Remove this hunt ?" + "<br>" + el.title;
+            deleteyes.id = el.id;
+            deleteyes.addEventListener('click', () => {
+              window.api.deletehunt(deleteyes.id);
+              app.window.reload();
+            })
+          })
+
+          
 
           var redirect = document.getElementById("htmlhunt");
           var string = el.title

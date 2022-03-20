@@ -660,8 +660,8 @@
               data-title="' + el.slot +'"\
               data-start="' + el.bet_size +'"\
               data-payout="' + el.payout +'"\
-              data-id="' + el.id +'"\
-              id="deletebonus"\
+              data-id="'+ el.id +'"\
+              id="id:'+ el.id +'"\
               >\
               <i class="fas fa-pen"></i>\
             </button>\
@@ -694,8 +694,9 @@
 
           // update bonus
 
+          var test = "id:"+el.id
           var updateyes = document.getElementById("updatebonus");
-          var btnupdate = document.getElementById(el.id);
+          var btnupdate = document.getElementById(test);
           var updateslot = document.getElementById("updateslot");
           var updatebetsize = document.getElementById("updatebetsize");
 
