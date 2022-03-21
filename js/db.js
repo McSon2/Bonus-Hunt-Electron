@@ -77,7 +77,7 @@ exports.startbyid = (id) => {
 }
 
 exports.hunt = (id) => {
-    const stmt = db.prepare('SELECT hunt.id_bonushunt, hunt.id_slots as id, slots.slot, slots.provider, hunt.bet_size, hunt.payout, hunt.multiplier from hunt join slots on hunt.id_slots = slots.id where id_bonushunt=:id');
+    const stmt = db.prepare('SELECT hunt.id_bonushunt as idhunt, hunt.id_slots as id, slots.slot, slots.provider, hunt.bet_size, hunt.payout, hunt.multiplier from hunt join slots on hunt.id_slots = slots.id where id_bonushunt=:id');
     const res = stmt.all({id});
     return res
 }
@@ -103,3 +103,76 @@ exports.getidhunt = (title) => {
     const res = stmt.all({title});
     return res
 }
+
+exports.updatebonus = (idhunt,id,bet,payout) => {
+    const sql = db.prepare('UPDATE hunt SET bet_size=:bet, payout=:payout WHERE id_bonushunt=:idhunt and id_slots=:id');
+    sql.run({idhunt,id,bet,payout})
+}
+
+exports.bonushuntpage = () => {
+    const stmt = db.prepare('SELECT id, title, start,date,(Select count(*) from hunt where hunt.id_bonushunt = bonus_hunt.id) as nbbonus from bonus_hunt group by id');
+    const res = stmt.all();
+    return res;
+}
+
+exports.avghuntwin = () => {
+    const stmt = db.prepare('SELECT ((Select sum(payout))/(Select count(*))/(Select count(*) from bonus_hunt)) as avg from hunt');
+    const res = stmt.all();
+    return res;
+}
+
+exports.bestslot = (id) => {
+    const stmt = db.prepare('select slot,max(payout) as best from (select payout, slots.slot, bonus_hunt.id from hunt join slots on hunt.id_slots = slots.id join bonus_hunt on hunt.id_bonushunt = bonus_hunt.id) where id=:id');
+    const res = stmt.all({id});
+    return res
+    
+}
+
+exports.worstslot = (id) => {
+    const stmt = db.prepare('select slot,min(payout) as worst from (select payout, slots.slot, bonus_hunt.id from hunt join slots on hunt.id_slots = slots.id join bonus_hunt on hunt.id_bonushunt = bonus_hunt.id) where id=:id');
+    const res = stmt.all({id});
+    return res
+}
+
+exports.amountwon = (id) => {
+    const stmt = db.prepare('select sum(payout) as amountwon from hunt where id_bonushunt=:id');
+    const res = stmt.all({id});
+    return res
+}
+
+exports.avgrequire = (id) => {
+    const stmt = db.prepare('SELECT ((bonus_hunt.start - SUM(hunt.payout)) / (SELECT COUNT(*) FROM hunt WHERE hunt.payout IS NULL)) as BE FROM hunt JOIN bonus_hunt on bonus_hunt.id = hunt.id_bonushunt where id_bonushunt=:id');
+    const res = stmt.all({id});
+    return res
+}
+
+exports.avg = (id) => {
+    const stmt = db.prepare('SELECT avg(hunt.payout) as AVG FROM hunt where id_bonushunt=:id');
+    const res = stmt.all({id});
+    return res
+}
+
+exports.bex = (id) => {
+    const stmt = db.prepare('SELECT ((SELECT ((bonus_hunt.start - SUM(hunt.payout)) / (SELECT COUNT(*) FROM hunt WHERE hunt.payout IS NULL)) FROM hunt JOIN bonus_hunt on bonus_hunt.id = hunt.id_bonushunt where id_bonushunt=:id) / avg(hunt.bet_size)) as BEX FROM hunt WHERE hunt.payout IS NULL');
+    const res = stmt.all({id});
+    return res
+}
+
+exports.avgx = (id) => {
+    const stmt = db.prepare('SELECT avg(hunt.multiplier) as AVGX FROM hunt where id_bonushunt=:id');
+    const res = stmt.all({id});
+    return res
+}
+
+exports.remain = (id) => {
+    const stmt = db.prepare('SELECT COUNT(*) as Remain FROM hunt WHERE hunt.payout IS NULL and id_bonushunt=:id');
+    const res = stmt.all({id});
+    return res
+}
+
+exports.cent = (id) => {
+    const stmt = db.prepare('SELECT COUNT(*) as cent FROM hunt WHERE hunt.multiplier >= 100 and id_bonushunt=:id');
+    const res = stmt.all({id});
+    return res
+}
+

@@ -14,7 +14,7 @@
 
     <!-- Custom fonts for this template-->
     <link
-      href="vendor/fontawesome-free/css/all.min.css"
+      href="../vendor/fontawesome-free/css/all.min.css"
       rel="stylesheet"
       type="text/css"
     />
@@ -23,17 +23,17 @@
       rel="stylesheet"
     />
     <link
-      href="vendor/datatables/dataTables.bootstrap4.min.css"
+      href="../vendor/datatables/dataTables.bootstrap4.min.css"
       rel="stylesheet"
     />
     <link
-      href="vendor/select2/select2.min.css"
+      href="../vendor/select2/select2.min.css"
       rel="stylesheet"
     />
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet" />
-    <link href="css/custom.css" rel="stylesheet" />
+    <link href="../css/sb-admin-2.min.css" rel="stylesheet" />
+    <link href="../css/custom.css" rel="stylesheet" />
   </head>
 
   <body id="page-top">
@@ -47,10 +47,10 @@
         <!-- Sidebar - Brand -->
         <a
           class="sidebar-brand d-flex align-items-center justify-content-center"
-          href="index.html"
+          href="../index.html"
         >
           <div class="logo">
-            <img src="./images/bonus.png" height="40px" />
+            <img src="../images/bonus.png" height="40px" />
           </div>
           <div class="sidebar-brand-text mx-3">Bonus Hunt</div>
         </a>
@@ -60,10 +60,20 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="../index.html">
             <i class="nav-icon fas fa-home"></i>
             <span>Dashboard</span></a
           >
+          <a class="nav-link" href="bonus-hunt.html">
+            <i class="nav-icon fas fa-bullseye"></i>
+            <span>Bonus Hunt</span></a
+          >
+
+          <a class="nav-link" href="slot.html">
+            <i class="nav-icon fas fa-bullseye"></i>
+            <span>Slot</span></a
+          >
+          
         </li>
 
         <!-- Divider 
@@ -273,7 +283,98 @@
 
             <!-- End WIDGET -->
 
-            
+            <div class="row justify-content-center">
+              <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
+                  <div class="info-box bg-warning border-left-secondary">
+                      <span class="info-box-icon"><i class="far fa-bookmark"></i></span>
+
+                      <div class="info-box-content">
+                          <span class="info-box-text">Amount won</span>
+                          <span class="info-box-number" id="amountwon">$ 210.43</span>
+                      </div>
+                      <!-- /.info-box-content -->
+                  </div>
+                  <!-- /.info-box -->
+              </div>
+              <div class="col-md-3 col-lg-3 col-md-6 col-sm-6 col-12">
+                  <div class="info-box bg-warning border-left-secondary">
+                      <span class="info-box-icon"><i class="far fa-bookmark"></i></span>
+
+                      <div class="info-box-content">
+                          <span class="info-box-text">Avg. Required</span>
+                          <span class="info-box-number" id="avgrequire">$ 315.57</span>
+                                                      </div>
+                      <!-- /.info-box-content -->
+                  </div>
+                  <!-- /.info-box -->
+              </div>
+
+              <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
+                  <div class="info-box bg-warning border-left-secondary">
+                      <span class="info-box-icon"><i class="far fa-bookmark"></i></span>
+
+                      <div class="info-box-content">
+                          <span class="info-box-text">Current Avg.</span>
+                          <span class="info-box-number" id="avg">$ 9.57</span>
+                      </div>
+                      <!-- /.info-box-content -->
+                  </div>
+                  <!-- /.info-box -->
+              </div>
+
+              
+              <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
+                  <div class="info-box bg-warning border-left-secondary">
+                      <span class="info-box-icon"><i class="far fa-bookmark"></i></span>
+
+                      <div class="info-box-content">
+                          <span class="info-box-text">Avg. Required X</span>
+                          <span class="info-box-number" id="bex">0.00</span>
+                      </div>
+                      <!-- /.info-box-content -->
+                  </div>
+                  <!-- /.info-box -->
+              </div>
+
+              <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
+                  <div class="info-box bg-warning border-left-secondary">
+                      <span class="info-box-icon"><i class="far fa-bookmark"></i></span>
+
+                      <div class="info-box-content">
+                          <span class="info-box-text">Current Avg. X</span>
+                          <span class="info-box-number" id="avgx">48.82x</span>
+                      </div>
+                      <!-- /.info-box-content -->
+                  </div>
+                  <!-- /.info-box -->
+              </div>
+
+              <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="info-box bg-warning border-left-secondary">
+                    <span class="info-box-icon"><i class="far fa-bookmark"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Remain Bonus</span>
+                        <span class="info-box-number" id="remain">10</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+              </div>
+
+              <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="info-box bg-warning border-left-secondary">
+                    <span class="info-box-icon"><i class="far fa-bookmark"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">x100 Win</span>
+                        <span class="info-box-number" id="cent">10</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+              </div>
+            </div>
 
             <!-- Modal Ajout hunt -->
 
@@ -392,6 +493,19 @@
                         name="StartHunt"
                       />
                     </div>
+                    <div class="form-group">
+                      <label for="StartHunt">Payout</label>
+                      <input
+                        class="form-control"
+                        type="number"
+                        min="0"
+                        max="10000000"
+                        step="1"
+                        id="updatepayout"
+                        placeholder="500"
+                        name="StartHunt"
+                      />
+                    </div>
                   </div>
                   <div class="modal-footer justify-content-between">
                     <button
@@ -439,7 +553,7 @@
               <div class="col-md-12">
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title float-left">Bonus Hunts</h3>
+                    <h3 class="card-title float-left">Bonus</h3>
                     <button
                       type="button"
                       class="btn btn-success float-right"
@@ -504,20 +618,20 @@
     </a>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-    <script src="vendor/select2/select2.min.js"></script>
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="../vendor/select2/select2.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-    <script src="./js/titlebar.js"></script>
-    <script src="./js/renderer.js"></script>
+    <script src="../js/sb-admin-2.min.js"></script>
+    <script src="../js/titlebar.js"></script>
+    <script src="../js/renderer.js"></script>
 
     <!--SCRIPT SQL-->
 
@@ -550,7 +664,7 @@
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const idhunt = urlParams.get("id");
-
+        console.log(idhunt)
         window.api.newbonus(idhunt,slotid,betsize);
         app.window.reload();
       });
@@ -574,7 +688,6 @@
           if (num !== null) {
           num = num.toFixed(2);}
           return num;
-          
         });
 
         divNames.innerHTML = "$ " + nameString;
@@ -605,10 +718,125 @@
         let nameString = startcost.map((elem) => {
           return elem.start;
         });
+        
 
         divNames.innerHTML = "$ " + nameString;
       });
 
+      //Amount won
+      document.addEventListener("DOMContentLoaded", async () => {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const id = urlParams.get("id");
+
+        let amountwon = window.api.amountwon(id);
+        let divNames = document.getElementById("amountwon");
+        let nameString = amountwon.map((elem) => {
+          var num = elem.amountwon;
+          if (num !== null) {
+          num = num.toFixed(2);}
+          return num;
+        });
+        divNames.innerHTML = "$ " + nameString;
+      });
+
+      //AVG Require
+      document.addEventListener("DOMContentLoaded", async () => {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const id = urlParams.get("id");
+
+        let avgrequire = window.api.avgrequire(id);
+        let divNames = document.getElementById("avgrequire");
+        let nameString = avgrequire.map((elem) => {
+          var num = elem.BE;
+          if (num !== null) {
+          num = num.toFixed(2);}
+          return num;
+        });
+        divNames.innerHTML = "$ " + nameString;
+      });
+
+      //Current AVG
+      document.addEventListener("DOMContentLoaded", async () => {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const id = urlParams.get("id");
+
+        let avg = window.api.avg(id);
+        let divNames = document.getElementById("avg");
+        let nameString = avg.map((elem) => {
+          var num = elem.AVG;
+          if (num !== null) {
+          num = num.toFixed(2);}
+          return num;
+        });
+        divNames.innerHTML = "$ " + nameString;
+      });
+
+      //Average require X
+      document.addEventListener("DOMContentLoaded", async () => {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const id = urlParams.get("id");
+
+        let bex = window.api.bex(id);
+        let divNames = document.getElementById("bex");
+        let nameString = bex.map((elem) => {
+          var num = elem.BEX;
+          if (num !== null) {
+          num = num.toFixed(2);}
+          return num;
+        });
+        divNames.innerHTML = "X " + nameString;
+      });
+
+      //Current AVG X
+      document.addEventListener("DOMContentLoaded", async () => {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const id = urlParams.get("id");
+
+        let avgx = window.api.avgx(id);
+        let divNames = document.getElementById("avgx");
+        let nameString = avgx.map((elem) => {
+          var num = elem.AVGX;
+          if (num !== null) {
+          num = num.toFixed(2);}
+          return num;
+        });
+        divNames.innerHTML = "X " + nameString;
+      });
+
+      //Current remain
+      document.addEventListener("DOMContentLoaded", async () => {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const id = urlParams.get("id");
+
+        let remain = window.api.remain(id);
+        let divNames = document.getElementById("remain");
+        let nameString = remain.map((elem) => {
+          var num = elem.Remain;
+          return num;
+        });
+        divNames.innerHTML = nameString;
+      });
+
+      //x100 win
+      document.addEventListener("DOMContentLoaded", async () => {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const id = urlParams.get("id");
+
+        let cent = window.api.cent(id);
+        let divNames = document.getElementById("cent");
+        let nameString = cent.map((elem) => {
+          var num = elem.cent;
+          return num;
+        });
+        divNames.innerHTML = nameString;
+      });
       
 
       //bonus hunt table
@@ -635,7 +863,6 @@
           if (multiplier !== null) {
             multiplier = multiplier.toFixed(2);
           }
-          
           
           var cell1 = row.insertCell(0);
           var cell2 = row.insertCell(1);
@@ -695,22 +922,26 @@
           });
 
           // update bonus
-
           var test = "id:"+el.id
           var updateyes = document.getElementById("updatebonus");
           var btnupdate = document.getElementById(test);
           var updateslot = document.getElementById("updateslot");
           var updatebetsize = document.getElementById("updatebetsize");
+          var updatepayout= document.getElementById("updatepayout");
 
           btnupdate.addEventListener('click', () => {
             
             updateslot.setAttribute('value',el.slot);
             updatebetsize.setAttribute('value',el.bet_size);
-            updateyes.id = el.id;
+            updatepayout.setAttribute('value',el.payout);
+            var id = el.id
+            var idhunt = el.idhunt
+            
             updateyes.addEventListener('click', () => {
-              const slot = updateslot.value;
-              const bet_size = updatebetsize.value;
-              window.api.updatebonus(slot,bet_size);
+              const payout = updatepayout.value
+              const bet = updatebetsize.value;
+              console.log(idhunt,id,bet,payout)
+              window.api.updatebonus(idhunt,id,bet,payout);
               app.window.reload();
             })
           })

@@ -78,6 +78,63 @@ const getidhunt = (title) => {
     return db.getidhunt(title);
 }
 
+const updatebonus = (idhunt,id,bet,payout) => {
+    db.updatebonus(idhunt,id,bet,payout);
+}
+
+const bonushuntpage = () => {
+    return db.bonushuntpage();
+}
+
+const avghuntwin = () => {
+    return db.avghuntwin();
+}
+
+const bestslot = (id) => {
+    db.bestslot(id);
+    return db.bestslot(id);
+}
+
+const worstslot = (id) => {
+    db.worstslot(id);
+    return db.worstslot(id);
+}
+
+const amountwon = (id) => {
+    db.amountwon(id);
+    return db.amountwon(id);
+}
+
+const avgrequire = (id) => {
+    db.avgrequire(id);
+    return db.avgrequire(id);
+}
+
+const avg = (id) => {
+    db.avg(id);
+    return db.avg(id);
+}
+
+const bex = (id) => {
+    db.bex(id);
+    return db.bex(id);
+}
+
+const avgx = (id) => {
+    db.avgx(id);
+    return db.avgx(id);
+}
+
+const remain = (id) => {
+    db.remain(id);
+    return db.remain(id);
+}
+
+const cent = (id) => {
+    db.cent(id);
+    return db.cent(id);
+}
+
 
 const API = {
     window: {
@@ -108,5 +165,17 @@ contextBridge.exposeInMainWorld("api", {
     slots: slots,
     newbonus: newbonus,
     deletebonus: deletebonus,
-    getidhunt: getidhunt
+    getidhunt: getidhunt,
+    updatebonus: updatebonus,
+    bonushuntpage: bonushuntpage,
+    avghuntwin: avghuntwin,
+    bestslot: bestslot,
+    worstslot: worstslot,
+    amountwon: amountwon,
+    avgrequire: avgrequire,
+    avg: avg,
+    bex: bex,
+    avgx: avgx,
+    remain: remain,
+    cent: cent
 })

@@ -14,7 +14,7 @@
 
     <!-- Custom fonts for this template-->
     <link
-      href="vendor/fontawesome-free/css/all.min.css"
+      href="../vendor/fontawesome-free/css/all.min.css"
       rel="stylesheet"
       type="text/css"
     />
@@ -22,11 +22,11 @@
       href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
       rel="stylesheet"
     />
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet"/>
+    <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet"/>
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet" />
-    <link href="css/custom.css" rel="stylesheet" />
+    <link href="../css/sb-admin-2.min.css" rel="stylesheet" />
+    <link href="../css/custom.css" rel="stylesheet" />
   </head>
 
   <body id="page-top">
@@ -40,10 +40,10 @@
         <!-- Sidebar - Brand -->
         <a
           class="sidebar-brand d-flex align-items-center justify-content-center"
-          href="index.html"
+          href="../index.html"
         >
           <div class="logo">
-            <img src="./images/bonus.png" height="40px" />
+            <img src="../images/bonus.png" height="40px" />
           </div>
           <div class="sidebar-brand-text mx-3">Bonus Hunt</div>
         </a>
@@ -53,17 +53,17 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="../index.html">
             <i class="nav-icon fas fa-home"></i>
             <span>Dashboard</span></a
           >
         
-          <a class="nav-link" href="./HTML/bonus-hunt.html">
+          <a class="nav-link" href="bonus-hunt.html">
             <i class="nav-icon fas fa-bullseye"></i>
             <span>Bonus Hunt</span></a
           >
 
-          <a class="nav-link" href="./HTML/slot.html">
+          <a class="nav-link" href="slot.html">
             <i class="nav-icon fas fa-bullseye"></i>
             <span>Slots</span></a
           >
@@ -181,7 +181,7 @@
             <div
               class="d-sm-flex align-items-center justify-content-between mb-4"
             >
-              <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+              <h1 class="h3 mb-0 text-gray-800">Bonus Hunt</h1>
             </div>
 
             <!-- End Page Heading -->
@@ -189,33 +189,6 @@
             <!-- WIDGET -->
 
             <div class="row">
-              <!-- Earnings (Monthly) Card Example -->
-              <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-primary shadow h-100 py-2">
-                  <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                      <div class="col mr-2">
-                        <div
-                          class="text-xs font-weight-bold text-primary text-uppercase mb-1"
-                        >
-                          Bonus Hunts
-                        </div>
-                        <div
-                          class="h5 mb-0 font-weight-bold text-gray-800"
-                          id="nbonus"
-                        >
-                          3
-                        </div>
-                      </div>
-                      <div class="col-auto">
-                        <i class="far fa-bookmark fa-2x text-gray-300"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <script></script>
 
               <!-- Earnings (Monthly) Card Example -->
               <div class="col-xl-3 col-md-6 mb-4">
@@ -294,6 +267,32 @@
                   </div>
                 </div>
               </div>
+
+              <!-- Earnings (Monthly) Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div
+                          class="text-xs font-weight-bold text-primary text-uppercase mb-1"
+                        >
+                          Average Win-Amount
+                        </div>
+                        <div
+                          class="h5 mb-0 font-weight-bold text-gray-800"
+                          id="avgwin"
+                        >
+                          3
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <!-- End WIDGET -->
@@ -302,27 +301,7 @@
 
             <!-- Winnings vs. Costs -->
 
-            <div class="row">
-              <!-- Area Chart -->
-              <div class="col-xl-12 col-lg-20">
-                <div class="card shadow mb-4">
-                  <!-- Card Header - Dropdown -->
-                  <div
-                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
-                  >
-                    <h6 class="m-0 font-weight-bold text-primary">
-                      Profit / Loss
-                    </h6>
-                  </div>
-                  <!-- Card Body -->
-                  <div class="card-body">
-                    <div class="chart-area">
-                      <canvas id="myAreaChart"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
 
             <!-- End Winnings vs. Costs -->
             
@@ -429,8 +408,8 @@
                           <th scope="col">Bonus Hunt Title</th>
                           <th scope="col">Start-cost</th>
                           <th scope="col">Date</th>
-                          <th scope="col">Bonus</th>
-                          <th scope="col">Profit/Loss</th>
+                          <th scope="col">Best Slot</th>
+                          <th scope="col">Worst Slot</th>
                           <th scope="col" style="width:180px" class="text-center">Actions</th>
                         </tr>
                       </thead>
@@ -470,25 +449,21 @@
     </a>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-    <script src="./js/titlebar.js"></script>
-    <script src="./js/renderer.js"></script>
+    <script src="../js/sb-admin-2.min.js"></script>
+    <script src="../js/titlebar.js"></script>
+    <script src="../js/renderer.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="js/chart-area.js"></script>
 
     <!--SCRIPT SQL-->
 
@@ -496,15 +471,17 @@
 
       //widget
 
-      //nombre de bonus
+      //AVG Win
       document.addEventListener("DOMContentLoaded", async () => {
-        let nbonus = window.api.getNbonus();
-        let divNames = document.getElementById("nbonus");
+        let nbonus = window.api.avghuntwin();
+        let divNames = document.getElementById("avgwin");
         let nameString = nbonus.map((elem) => {
-          return elem.nbonus;
+          var num = elem.avg;
+          num = num.toFixed(2)
+          return num
         });
 
-        divNames.innerHTML = nameString;
+        divNames.innerHTML = "$ " + nameString;
       });
 
       //cout total
@@ -515,7 +492,7 @@
           return elem.totalcost;
         });
 
-        divNames.innerHTML = "$" + nameString;
+        divNames.innerHTML = "$ " + nameString;
       });
 
       //total win
@@ -565,8 +542,10 @@
         var string2 = string.replace("#", "")
         var title2 = string2.split(" ").join("_")
 
+        
 
-        location.href = "./HTML/bonus.html" + "?id=" + nameString + "&title=" + title2
+        location.href = "bonus.html" + "?id=" + nameString + "&title=" + title2
+        
       })
 
       
@@ -574,7 +553,7 @@
       //bonus hunt table
       document.addEventListener("DOMContentLoaded", async () => {
 
-        let bonushunt = window.api.bonushunt();
+        let bonushunt = window.api.bonushuntpage();
         
         var tableBonushuntbody = document.getElementById("tableBonushunt").getElementsByTagName("tbody")[0]
         var tableBonushunt = document.getElementById("tableBonushunt")
@@ -588,10 +567,28 @@
 
         bonushunt.forEach((el) => {
           var row = tableBonushuntbody.insertRow(0);
-          var profitloss = el.profitloss
-          if (profitloss !== null) {
-            profitloss = profitloss.toFixed(2);}
+            
+          var bestslot = window.api.bestslot(el.id)
           
+          var bestslotname = bestslot.map((elem) => {
+              var num = elem.slot
+              return num
+          })
+          var bestwin = bestslot.map((elem) => {
+              var num = elem.best
+              return num
+          })
+
+          var worstslot = window.api.worstslot(el.id)
+          
+          var worstslotname = worstslot.map((elem) => {
+              var num = elem.slot
+              return num
+          })
+          var worstwin = worstslot.map((elem) => {
+              var num = elem.worst
+              return num
+          })
 
           var cell1 = row.insertCell(0);
           var cell2 = row.insertCell(1);
@@ -605,9 +602,9 @@
 
           cell1.innerHTML = el.title;
           cell2.innerHTML = "$ " + el.start;
-          cell3.innerHTML = el.date;
-          cell4.innerHTML = el.nbbonus;
-          cell5.innerHTML = "$ " + profitloss;
+          cell3.innerHTML = el.nbbonus;
+          cell4.innerHTML = bestslotname + " ($ " + bestwin + ")";
+          cell5.innerHTML = worstslotname + " ($ " + worstwin + ")";
           cell6.innerHTML = 
           '<div class="btn-group">\
             <button type="button"\
@@ -695,7 +692,7 @@
           var string2 = string.replace("#", "")
           var title = string2.split(" ").join("_")
           redirect.addEventListener('click', () => {
-            location.href = "./HTML/bonus.html" + "?id=" + el.id + "&title=" + title
+            location.href = "bonus.html" + "?id=" + el.id + "&title=" + title
           })
 
           
