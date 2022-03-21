@@ -136,7 +136,7 @@ SELECT id, (
 ) as profitloss 
 from bonus_hunt
 JOIN hunt on bonus_hunt.id = hunt.id_bonushunt 
-WHERE id = 1
+WHERE id = 4
 GROUP BY id
 
 
@@ -162,8 +162,70 @@ where id_bonushunt = 1
 select slot
 FROM slots
 
-SELECT id, title, start,date,(Select count(*) from hunt where hunt.id_bonushunt = bonus_hunt.id) as nbbonus, ((SELECT SUM(payout) FROM hunt where hunt.id_bonushunt = bonus_hunt.id)-(SELECT start FROM bonus_hunt where bonus_hunt.id = hunt.id_bonushunt)) as profitloss from bonus_hunt JOIN hunt on bonus_hunt.id = hunt.id_bonushunt GROUP BY id
+SELECT id, title, start,date,(Select count(*) from hunt where hunt.id_bonushunt = bonus_hunt.id) as nbbonus, ((SELECT SUM(payout) FROM hunt where hunt.id_bonushunt = bonus_hunt.id)-(SELECT start FROM bonus_hunt where bonus_hunt.id = hunt.id_bonushunt)) as profitloss from bonus_hunt GROUP BY id
  
 SELECT bonus_hunt.id
 from bonus_hunt 
 where title = "test"
+
+SELECT id, title, start,date,(Select count(*) from hunt where hunt.id_bonushunt = bonus_hunt.id) as nbbonus from bonus_hunt group by id
+
+
+SELECT ((Select sum(payout))/(Select count(*))/(Select count(*) from bonus_hunt)) from hunt
+
+
+
+Select max(payout) as bestslot, (select slot from slots where hunt.id_slots = slots.id) as name
+from hunt
+join slots on hunt.id_slots = slots.id
+
+Select min(payout) as worstslot, (select slot from slots where hunt.id_slots = slots.id) as name
+from hunt
+join slots on hunt.id_slots = slots.id
+
+
+select title, (select slot from slots join slots on hunt.id_slots = slots.id where hunt.id_slots = slots.id), (Select max(payout) as bestslot from hunt where hunt.id_bonushunt = bonus_hunt.id)
+from bonus_hunt
+JOIN hunt on bonus_hunt.id = hunt.id_bonushunt 
+
+
+select slot,max(payout) as best
+from
+(
+select payout, slots.slot, bonus_hunt.id
+from hunt
+join slots on hunt.id_slots = slots.id
+join bonus_hunt on hunt.id_bonushunt = bonus_hunt.id
+)
+where id = "1"
+
+select sum(payout) from hunt where id_bonushunt = "1"
+
+
+
+
+SELECT (bonus_hunt.start - SUM(hunt.payout)) as BE FROM hunt JOIN bonus_hunt on bonus_hunt.id = hunt.id_bonushunt where id_bonushunt=:id
+
+
+SELECT ((bonus_hunt.start - SUM(hunt.payout)) / (SELECT COUNT(*) FROM hunt WHERE hunt.payout IS NULL)) FROM hunt JOIN bonus_hunt on bonus_hunt.id = hunt.id_bonushunt where id_bonushunt=:id
+
+
+
+SELECT avg(hunt.payout) as AVG FROM hunt where id_bonushunt = "34"
+
+
+SELECT ((SELECT ((bonus_hunt.start - SUM(hunt.payout)) / (SELECT COUNT(*) FROM hunt WHERE hunt.payout IS NULL)) FROM hunt JOIN bonus_hunt on bonus_hunt.id = hunt.id_bonushunt where id_bonushunt=:id) / avg(hunt.bet_size)) as BEX FROM hunt WHERE hunt.payout IS NULL
+
+
+
+SELECT avg(hunt.multiplier) as AVGX FROM hunt where id_bonushunt=:id
+
+
+
+SELECT COUNT(*) as Remain FROM hunt WHERE hunt.payout IS NULL and id_bonushunt=:id
+
+
+
+
+SELECT COUNT(*) as cent FROM hunt WHERE hunt.multiplier > 100 and id_bonushunt=:id
+
