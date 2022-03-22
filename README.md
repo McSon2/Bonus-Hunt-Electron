@@ -96,32 +96,9 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Just download and install on your pc.
+Just download and install on your pc. <br />
 [Download](https://github.com/McSon2/Bonus-Hunt-Electron/releases/download/v0.0.1/bonus_hunt.exe)
 
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/github_username/repo_name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -130,9 +107,11 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+1./ Click on + to add your first Hunt
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+2./ Add new bonus
+
+3./ If slots are missing you can add them in the slots tab
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -141,12 +120,13 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+- [ ] Dark Mode
+- [ ] More intuitive way to enter wins
+- [ ] Statistics
+- [ ] Streaming Widget
+- [ ] Bonus Buy Tournament
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/McSon2/Bonus-Hunt-Electron/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -182,22 +162,12 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Maxime SALTET - [@twitter_Mcson](https://twitter.com/McSons1) - maximesaltet@gmail.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* []()
-* []()
-* []()
+Project Link: [https://github.com/McSon2/Bonus-Hunt-Electron](https://github.com/McSon2/Bonus-Hunt-Electron)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
 
 
 

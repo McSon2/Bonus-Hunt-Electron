@@ -11,8 +11,8 @@ const appPath = app.getAppPath().replace("Database", "bh.db");
 //Window
 function createWindow() {
   const win = new BrowserWindow({
-    width: 1280,
-    height: 720,
+    width: 1600,
+    height: 900,
     minWidth: 1024,
     minHeight: 640,
     closable: true,
