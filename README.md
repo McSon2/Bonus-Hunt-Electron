@@ -222,6 +222,4 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [issues-url]: https://github.com/McSon2/Bonus-Hunt-Electron/issues
 [license-shield]: https://img.shields.io/github/license/McSon2/Bonus-Hunt-Electron.svg?style=for-the-badge
 [license-url]: https://github.com/McSon2/Bonus-Hunt-Electron/blob/e9c9425380aa48c1ff121f3ba650080d5bed0db8/license.md
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png

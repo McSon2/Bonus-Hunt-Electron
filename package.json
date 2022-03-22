@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/McSon2/Bonus-Hunt-Electron.git",
+    "url": "git+https://github.com/McSon2/Bonus-Hunt-Electron.git"
   },
   "bugs": {
     "url": "https://github.com/McSon2/Bonus-Hunt-Electron/issues"
@@ -44,6 +44,5 @@
       "license": "license.md",
       "allowToChangeInstallationDirectory": true
     }
-    
   }
 }
