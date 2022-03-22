@@ -185,4 +185,4 @@ Project Link: [https://github.com/McSon2/Bonus-Hunt-Electron](https://github.com
 [license-shield]: https://img.shields.io/github/license/McSon2/Bonus-Hunt-Electron?style=for-the-badge
 [license-url]: https://github.com/McSon2/Bonus-Hunt-Electron/blob/e9c9425380aa48c1ff121f3ba650080d5bed0db8/license.md
 [product-screenshot]: images/screenshot.png
-[GitHub](https://img.shields.io/github/license/McSon2/Bonus-Hunt-Electron?style=for-the-badge)
+[GitHub]: https://img.shields.io/github/license/McSon2/Bonus-Hunt-Electron?style=for-the-badge
