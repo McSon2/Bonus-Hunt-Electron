@@ -22,7 +22,6 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 
 
@@ -36,9 +35,9 @@
 <h3 align="center">Bonus Hunt</h3>
 
   <p align="center">
-    you will never do your hunts with a spreadsheet again.
+    You will never do your hunts with a spreadsheet again.
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://github.com/McSon2/Bonus-Hunt-Electron">View Demo</a>
     ·
     <a href="https://github.com/McSon2/Bonus-Hunt-Electron/issues">Report Bug</a>
     ·
@@ -79,7 +78,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]]()
 
 Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
 
