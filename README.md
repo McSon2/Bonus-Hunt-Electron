@@ -21,7 +21,7 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+[![MIT License][GitHub]][license-url]
 
 
 
@@ -182,6 +182,7 @@ Project Link: [https://github.com/McSon2/Bonus-Hunt-Electron](https://github.com
 [stars-url]: https://github.com/McSon2/Bonus-Hunt-Electron/stargazers
 [issues-shield]: https://img.shields.io/github/issues/McSon2/Bonus-Hunt-Electron.svg?style=for-the-badge
 [issues-url]: https://github.com/McSon2/Bonus-Hunt-Electron/issues
-[license-shield]: https://img.shields.io/github/license/McSon2/Bonus-Hunt-Electron.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/McSon2/Bonus-Hunt-Electron?style=for-the-badge
 [license-url]: https://github.com/McSon2/Bonus-Hunt-Electron/blob/e9c9425380aa48c1ff121f3ba650080d5bed0db8/license.md
 [product-screenshot]: images/screenshot.png
+[GitHub](https://img.shields.io/github/license/McSon2/Bonus-Hunt-Electron?style=for-the-badge)
