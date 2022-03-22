@@ -78,22 +78,14 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]]()
-
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
+[![Product Name Screen Shot][product-screenshot]](https://github.com/McSon2/Bonus-Hunt-Electron)
 
 ### Built With
 
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
+* [Electron](https://www.electronjs.org/)
+* [Node.js](https://nodejs.org/)
+* [Select2](https://select2.org/)
+* [Better-Sqlite3](https://github.com/JoshuaWise/better-sqlite3)
 * [Bootstrap](https://getbootstrap.com)
 * [JQuery](https://jquery.com)
 
@@ -104,8 +96,8 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Just download and install on your pc.
+[Download](https://github.com/McSon2/Bonus-Hunt-Electron/releases/download/v0.0.1/bonus_hunt.exe)
 
 ### Prerequisites
 
