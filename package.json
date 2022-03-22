@@ -5,6 +5,7 @@
   "scripts": {
     "start": "electron .",
     "win": "electron-builder -w",
+    "dist": "electron-builder --publish always",
     "postinstall": "electron-builder install-app-deps"
   },
   "keywords": [],
@@ -18,7 +19,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/McSon2/Bonus-Hunt-Electron.git"
+    "url": "git+https://github.com/McSon2/Bonus-Hunt-Electron.git",
+    "token": "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"
   },
   "bugs": {
     "url": "https://github.com/McSon2/Bonus-Hunt-Electron/issues"
@@ -26,6 +28,13 @@
   "homepage": "https://github.com/McSon2/Bonus-Hunt-Electron#readme",
   "description": "",
   "dependencies": {
-    "better-sqlite3": "^7.5.0"
+    "better-sqlite3": "^7.5.0",
+    "better-sqlite3-multiple-ciphers": "^7.5.1-beta.3"
+  },
+  "build": {
+    "win": {
+      "publish": ["github"]
+    },
+    "icon": "./images/ico.ico"
   }
 }

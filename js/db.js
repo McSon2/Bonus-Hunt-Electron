@@ -1,8 +1,6 @@
-const sqlite = require('better-sqlite3');
-const electron = require('electron');
+const sqlite = require('better-sqlite3-multiple-ciphers');
 
-
-const db = new sqlite("./Database/bh.db");
+const db = new sqlite("C:/Users/maxim/Documents/Projet Application/Bonus-Hunt/Database/bh.db");
 
 exports.getNbonus = () => {
     const stmt = db.prepare('SELECT count(*) as nbonus FROM bonus_hunt');
