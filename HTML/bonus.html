@@ -639,13 +639,10 @@
       //Select2
       document.addEventListener("DOMContentLoaded", async () => {
         var slots = window.api.slots()
- 
         var slot = $.map(slots, function (obj) {
           obj.text = obj.text || obj.slot;
-
           return obj
         })
-
         $(".select2").select2({
           data: slot
         })   
@@ -656,15 +653,16 @@
 
       //ajout d'un hunt
       const SaveHunt = document.getElementById("SaveHunt");
+      
       SaveHunt.addEventListener("click", () => {
         const select = document.getElementById("select2")
         const slotid = select.value
+        console.log(slotid)
         const betsizebonus = document.getElementById("betsize")
         const betsize = betsizebonus.value
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const idhunt = urlParams.get("id");
-        console.log(idhunt)
         window.api.newbonus(idhunt,slotid,betsize);
         app.window.reload();
       });
@@ -940,7 +938,6 @@
             updateyes.addEventListener('click', () => {
               const payout = updatepayout.value
               const bet = updatebetsize.value;
-              console.log(idhunt,id,bet,payout)
               window.api.updatebonus(idhunt,id,bet,payout);
               app.window.reload();
             })

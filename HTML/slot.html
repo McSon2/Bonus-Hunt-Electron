@@ -211,7 +211,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title" id="titlemodaladdhunt">
-                      Create Bonus Hunt
+                      Create Slot
                     </h5>
                     <button
                       type="button"
@@ -224,28 +224,52 @@
                   </div>
                   <div class="modal-body">
                     <div class="form-group">
-                      <label>Choose slot *</label>
-                      <select
-                        name="slot"
-                        class="form-control select2 select2-hidden-accessible"
-                        style="width: 100%"
-                        id="select2">
-                        <option selected="selected" id="select"></option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label for="betsize">Bet size</label>
+                      <label>Slot</label>
                       <input
-                        class="form-control"
-                        type="number"
-                        min="0"
-                        max="10000000"
-                        step="1"
-                        id="betsize"
-                        placeholder="0.5"
-                        name="StartHunt"
+                      class="form-control"
+                      type="text"
+                      id="createslot"
+                      name="createslot"
                       />
                     </div>
+                    <div class="form-group">
+                        <label>Choose Provider</label>
+                        <select
+                            name="providers"
+                            class="form-control select2 select2-hidden-accessible"
+                            style="width: 100%"
+                            id="select2">
+                            <option selected="selected" id="select"></option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="betsize">RTP</label>
+                        <input
+                        class="form-control"
+                        type="text"
+                        id="creatertp"
+                        name="creatertp"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="betsize">Volatility</label>
+                        <input
+                        class="form-control"
+                        type="text"
+                        id="createvolatility"
+                        name="createvolatility"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="betsize">Potential</label>
+                        <input
+                        class="form-control"
+                        type="text"
+                        id="createpotential"
+                        name="createpotential"
+                        />
+                      </div>
                   </div>
                   <div class="modal-footer justify-content-between">
                     <button
@@ -270,20 +294,92 @@
 
             
 
-            <!-- Modal delete hunt -->
+            <!-- Modal Modif hunt -->
 
-            <div class="modal fade show" id="deleteHunt" aria-labelledby="titlemodaladdhunt" aria-modal="true">
+            <div
+              class="modal fade show"
+              id="UpdateBonus"
+              aria-labelledby="titlemodaladdhunt"
+              aria-modal="true"
+            >
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="titlemoddalsuppbonus">Remove this Hunt ?</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <h5 class="modal-title" id="titlemodaladdhunt">
+                      Update Slot
+                    </h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
+                  <div class="modal-body">
+                    <div class="form-group">
+                      <label for="NameHunt">Slot</label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        id="slotname"
+                        name="slotname"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="StartHunt">Provider</label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        id="provider"
+                        name="provider"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="StartHunt">RTP</label>
+                      <input
+                      class="form-control"
+                      type="text"
+                      id="rtp"
+                      name="rtp"
+                      />
+                    </div>
+                    <div class="form-group">
+                        <label for="StartHunt">Volatility</label>
+                        <input
+                        class="form-control"
+                        type="text"
+                        id="volatility"
+                        name="volatility"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="StartHunt">Potential</label>
+                        <input
+                        class="form-control"
+                        type="text"
+                        id="potential"
+                        name="potential"
+                        />
+                    </div>
+                  </div>
                   <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                    <button type="submit" class="btn btn-primary deletethisbonus" data-dismiss="modal" id="deletethisbonus">Yes</button>
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button
+                      type="submit"
+                      class="btn btn-primary"
+                      data-dismiss="modal"
+                      id="updatebonus"
+                    >
+                      Save
+                    </button>
                   </div>
                 </div>
               </div>
@@ -313,11 +409,11 @@
                     >
                       <thead class="thead-light">
                         <tr>
-                          <th scope="col">Bonus</th>
+                          <th scope="col">Slots</th>
                           <th scope="col">Provider</th>
-                          <th scope="col">Bet size</th>
-                          <th scope="col">Payout</th>
-                          <th scope="col">Multiplier</th>
+                          <th scope="col">RTP</th>
+                          <th scope="col">Volatility</th>
+                          <th scope="col">Potential</th>
                           <th
                             scope="col"
                             style="width: 180px"
@@ -378,215 +474,52 @@
     <!--SCRIPT SQL-->
 
     <script>
-      //Select2
-      document.addEventListener("DOMContentLoaded", async () => {
-        var slots = window.api.slots()
- 
-        var slot = $.map(slots, function (obj) {
-          obj.text = obj.text || obj.slot;
-
-          return obj
-        })
-
-        $(".select2").select2({
-          data: slot
-        })   
+      
+    //Select2
+        document.addEventListener("DOMContentLoaded", async () => {
+            var provider = window.api.provider()
+            var providers = $.map(provider, function (obj) {
+                obj.text = obj.text || obj.provider;
+                return obj
+            })
+            $(".select2").select2({
+                data: providers
+            })   
         
-      })
-
+        })
 
 
       //ajout d'un hunt
       const SaveHunt = document.getElementById("SaveHunt");
+      
       SaveHunt.addEventListener("click", () => {
-        const select = document.getElementById("select2")
-        const slotid = select.value
-        const betsizebonus = document.getElementById("betsize")
-        const betsize = betsizebonus.value
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const idhunt = urlParams.get("id");
-        console.log(idhunt)
-        window.api.newbonus(idhunt,slotid,betsize);
+        
+        let select = document.getElementById("select2")
+        let id = select.value
+        let pro = window.api.providerbyid(id)
+        let prov = pro.map((elem) => {
+          var num = elem.provider
+          return num
+        })
+        let provider = String(prov)
+        const slot = document.getElementById("createslot").value
+        const rtp = document.getElementById("creatertp").value
+        const volatility = document.getElementById("createvolatility").value
+        const potential = document.getElementById("createpotential").value
+        
+        window.api.newslot(slot,provider,rtp,volatility,potential);
         app.window.reload();
       });
 
 
 
 
-      //widget
-
-      //profit/loss
-      document.addEventListener("DOMContentLoaded", async () => {
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const id = urlParams.get("id");
-
-        let profitloss = window.api.ProfitLossbyid(id);
-        let divNames = document.getElementById("profitloss");
-
-        let nameString = profitloss.map((elem) => {
-          var num = elem.profitloss;
-          if (num !== null) {
-          num = num.toFixed(2);}
-          return num;
-        });
-
-        divNames.innerHTML = "$ " + nameString;
-      });
-
-      //nb bonus
-      document.addEventListener("DOMContentLoaded", async () => {
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const id = urlParams.get("id");
-        let bonuscount = window.api.CountBonusbyid(id);
-        let divNames = document.getElementById("bonuscount");
-        let nameString = bonuscount.map((elem) => {
-          return elem.NB_Bonus;
-        });
-
-        divNames.innerHTML = nameString;
-      });
-
-      //start
-      document.addEventListener("DOMContentLoaded", async () => {
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const id = urlParams.get("id");
-
-        let startcost = window.api.startbyid(id);
-        let divNames = document.getElementById("startcost");
-        let nameString = startcost.map((elem) => {
-          return elem.start;
-        });
-        
-
-        divNames.innerHTML = "$ " + nameString;
-      });
-
-      //Amount won
-      document.addEventListener("DOMContentLoaded", async () => {
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const id = urlParams.get("id");
-
-        let amountwon = window.api.amountwon(id);
-        let divNames = document.getElementById("amountwon");
-        let nameString = amountwon.map((elem) => {
-          var num = elem.amountwon;
-          if (num !== null) {
-          num = num.toFixed(2);}
-          return num;
-        });
-        divNames.innerHTML = "$ " + nameString;
-      });
-
-      //AVG Require
-      document.addEventListener("DOMContentLoaded", async () => {
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const id = urlParams.get("id");
-
-        let avgrequire = window.api.avgrequire(id);
-        let divNames = document.getElementById("avgrequire");
-        let nameString = avgrequire.map((elem) => {
-          var num = elem.BE;
-          if (num !== null) {
-          num = num.toFixed(2);}
-          return num;
-        });
-        divNames.innerHTML = "$ " + nameString;
-      });
-
-      //Current AVG
-      document.addEventListener("DOMContentLoaded", async () => {
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const id = urlParams.get("id");
-
-        let avg = window.api.avg(id);
-        let divNames = document.getElementById("avg");
-        let nameString = avg.map((elem) => {
-          var num = elem.AVG;
-          if (num !== null) {
-          num = num.toFixed(2);}
-          return num;
-        });
-        divNames.innerHTML = "$ " + nameString;
-      });
-
-      //Average require X
-      document.addEventListener("DOMContentLoaded", async () => {
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const id = urlParams.get("id");
-
-        let bex = window.api.bex(id);
-        let divNames = document.getElementById("bex");
-        let nameString = bex.map((elem) => {
-          var num = elem.BEX;
-          if (num !== null) {
-          num = num.toFixed(2);}
-          return num;
-        });
-        divNames.innerHTML = "X " + nameString;
-      });
-
-      //Current AVG X
-      document.addEventListener("DOMContentLoaded", async () => {
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const id = urlParams.get("id");
-
-        let avgx = window.api.avgx(id);
-        let divNames = document.getElementById("avgx");
-        let nameString = avgx.map((elem) => {
-          var num = elem.AVGX;
-          if (num !== null) {
-          num = num.toFixed(2);}
-          return num;
-        });
-        divNames.innerHTML = "X " + nameString;
-      });
-
-      //Current remain
-      document.addEventListener("DOMContentLoaded", async () => {
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const id = urlParams.get("id");
-
-        let remain = window.api.remain(id);
-        let divNames = document.getElementById("remain");
-        let nameString = remain.map((elem) => {
-          var num = elem.Remain;
-          return num;
-        });
-        divNames.innerHTML = nameString;
-      });
-
-      //x100 win
-      document.addEventListener("DOMContentLoaded", async () => {
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const id = urlParams.get("id");
-
-        let cent = window.api.cent(id);
-        let divNames = document.getElementById("cent");
-        let nameString = cent.map((elem) => {
-          var num = elem.cent;
-          return num;
-        });
-        divNames.innerHTML = nameString;
-      });
       
 
       //bonus hunt table
       document.addEventListener("DOMContentLoaded", async () => {
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const id = urlParams.get("id");
-        let bonushunt = window.api.hunt(id);
+        
+        let bonushunt = window.api.allslot();
 
         var tableBonushuntbody = document
           .getElementById("tableBonushunt")
@@ -601,10 +534,7 @@
         
         bonushunt.forEach((el) => {
           var row = tableBonushuntbody.insertRow(0);
-          var multiplier = el.multiplier;
-          if (multiplier !== null) {
-            multiplier = multiplier.toFixed(2);
-          }
+          
           
           var cell1 = row.insertCell(0);
           var cell2 = row.insertCell(1);
@@ -619,9 +549,9 @@
 
           cell1.innerHTML = el.slot;
           cell2.innerHTML = el.provider;
-          cell3.innerHTML = el.bet_size;
-          cell4.innerHTML = el.payout;
-          cell5.innerHTML = multiplier;
+          cell3.innerHTML = el.rtp;
+          cell4.innerHTML = el.volatility;
+          cell5.innerHTML = el.potential;
           cell6.innerHTML =
           '<div class="btn-group">\
             <button type="button"\
@@ -636,54 +566,36 @@
               >\
               <i class="fas fa-pen"></i>\
             </button>\
-            <button type="button"\
-              class="btn btn-danger toggleTrashModal"\
-              data-toggle="modal"\
-              data-target="#deleteHunt"\
-              data-whatever="'+ el.slot +'"\
-              data-id="'+ el.id +'"\
-              id="'+ el.id +'"\
-              >\
-              <i class="fas fa-trash"></i>\
-            </button>\
           </div>'
           
-          // delete bonus
-
-          var deleteyes = document.getElementById("deletethisbonus");
-          var btndelete = document.getElementById(el.id);
-          var titlemoddal = document.getElementById("titlemoddalsuppbonus");
           
-          btndelete.addEventListener("click", () => {
-            titlemoddal.innerHTML = "Remove this bonus ?" + "<br>" + el.slot;
-            deleteyes.id = el.id;
-            deleteyes.addEventListener('click', () => {
-              window.api.deletebonus(deleteyes.id);
-              app.window.reload();
-            })
-          });
 
           // update bonus
           var test = "id:"+el.id
           var updateyes = document.getElementById("updatebonus");
           var btnupdate = document.getElementById(test);
-          var updateslot = document.getElementById("updateslot");
-          var updatebetsize = document.getElementById("updatebetsize");
-          var updatepayout= document.getElementById("updatepayout");
+          var slotname = document.getElementById("slotname");
+          var pro = document.getElementById("provider");
+          var rtps = document.getElementById("rtp");
+          var volatilitys = document.getElementById("volatility");
+          var potentials = document.getElementById("potential");
 
           btnupdate.addEventListener('click', () => {
             
-            updateslot.setAttribute('value',el.slot);
-            updatebetsize.setAttribute('value',el.bet_size);
-            updatepayout.setAttribute('value',el.payout);
+            slotname.setAttribute('value',el.slot);
+            pro.setAttribute('value',el.provider);
+            rtps.setAttribute('value',el.rtp);
+            volatilitys.setAttribute('value',el.volatility);
+            potentials.setAttribute('value',el.potential);
             var id = el.id
-            var idhunt = el.idhunt
             
             updateyes.addEventListener('click', () => {
-              const payout = updatepayout.value
-              const bet = updatebetsize.value;
-              console.log(idhunt,id,bet,payout)
-              window.api.updatebonus(idhunt,id,bet,payout);
+              const slot = slotname.value
+              const provider = pro.value;
+              const rtp = rtps.value
+              const volatility = volatilitys.value;
+              const potential = potentials.value;
+              window.api.updateslot(id,slot,provider,rtp,volatility,potential);
               app.window.reload();
             })
           })
@@ -692,18 +604,6 @@
         $("#tableBonushunt").DataTable();
       });
 
-      document.addEventListener("DOMContentLoaded", async () => {
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const id = urlParams.get("id");
-        const string = urlParams.get("title");
-        const string2 = string.split("_").join(" ");
-        const a = "#";
-        const title = a.concat(string2);
-
-        var titlepage = document.getElementById("titrepage");
-        titlepage.innerHTML = "Hunt : " + title;
-      });
     </script>
   </body>
 </html>

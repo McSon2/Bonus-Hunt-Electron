@@ -135,6 +135,27 @@ const cent = (id) => {
     return db.cent(id);
 }
 
+const allslot = () => {
+    return db.allslot();
+}
+
+const updateslot = (id,slot,provider,rtp,volatility,potential) => {
+    db.updateslot(id,slot,provider,rtp,volatility,potential);
+}
+
+const provider = () => {
+    return db.provider();
+}
+
+const providerbyid = (id) => {
+    db.providerbyid(id)
+    return db.providerbyid(id);
+}
+
+const newslot = (slot,provider,rtp,volatility,potential) => {
+    db.newslot(slot,provider,rtp,volatility,potential);
+}
+
 
 const API = {
     window: {
@@ -177,5 +198,10 @@ contextBridge.exposeInMainWorld("api", {
     bex: bex,
     avgx: avgx,
     remain: remain,
-    cent: cent
+    cent: cent,
+    allslot: allslot,
+    updateslot: updateslot,
+    provider: provider,
+    providerbyid: providerbyid,
+    newslot: newslot
 })

@@ -503,7 +503,6 @@
         let nameString = nbonus.map((elem) => {
           return elem.nbonus;
         });
-
         divNames.innerHTML = nameString;
       });
 
@@ -554,7 +553,7 @@
         const start = StartHunt.value;
         const date = DateHunt.value;
         window.api.newHunt(title,start,date);
-
+        
         var id = window.api.getidhunt(title)
         var nameString = id.map((elem) => {
           var num = elem.id
