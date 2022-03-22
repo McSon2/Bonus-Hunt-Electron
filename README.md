@@ -78,7 +78,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://github.com/McSon2/Bonus-Hunt-Electron)
+[![Product Name Screen Shot][product-screenshot]](https://github.com/McSon2/Bonus-Hunt-Electron/blob/master/images/screenshot.png)
 
 ### Built With
 
