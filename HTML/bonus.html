@@ -688,7 +688,11 @@
           return num;
         });
 
-        divNames.innerHTML = "$ " + nameString;
+        if(nameString == 0) {
+          divNames.innerHTML = nameString;}
+          else {
+            divNames.innerHTML = "$ " + nameString;
+          }
       });
 
       //nb bonus
@@ -718,7 +722,11 @@
         });
         
 
-        divNames.innerHTML = "$ " + nameString;
+        if(nameString == 0) {
+          divNames.innerHTML = nameString;}
+          else {
+            divNames.innerHTML = "$ " + nameString;
+          }
       });
 
       //Amount won
@@ -735,7 +743,11 @@
           num = num.toFixed(2);}
           return num;
         });
-        divNames.innerHTML = "$ " + nameString;
+        if(nameString == 0) {
+          divNames.innerHTML = nameString;}
+          else {
+            divNames.innerHTML = "$ " + nameString;
+          }
       });
 
       //AVG Require
@@ -752,7 +764,11 @@
           num = num.toFixed(2);}
           return num;
         });
-        divNames.innerHTML = "$ " + nameString;
+        if(nameString == 0) {
+          divNames.innerHTML = nameString;}
+          else {
+            divNames.innerHTML = "$ " + nameString;
+          }
       });
 
       //Current AVG
@@ -769,7 +785,11 @@
           num = num.toFixed(2);}
           return num;
         });
-        divNames.innerHTML = "$ " + nameString;
+        if(nameString == 0) {
+          divNames.innerHTML = nameString;}
+          else {
+            divNames.innerHTML = "$ " + nameString;
+          }
       });
 
       //Average require X
@@ -786,7 +806,12 @@
           num = num.toFixed(2);}
           return num;
         });
-        divNames.innerHTML = "X " + nameString;
+        
+        if(nameString == 0) {
+          divNames.innerHTML = nameString;}
+          else {
+            divNames.innerHTML = "$ " + nameString;
+          }
       });
 
       //Current AVG X
@@ -803,7 +828,11 @@
           num = num.toFixed(2);}
           return num;
         });
-        divNames.innerHTML = "X " + nameString;
+        if(nameString == 0) {
+          divNames.innerHTML = nameString;}
+          else {
+            divNames.innerHTML = "$ " + nameString;
+          }
       });
 
       //Current remain

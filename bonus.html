@@ -576,8 +576,11 @@
           return num;
           
         });
-
-        divNames.innerHTML = "$ " + nameString;
+        if(nameString !== null) {
+          divNames.innerHTML = nameString;}
+          else {
+            divNames.innerHTML = "$ " + nameString;
+          }
       });
 
       //nb bonus
@@ -606,7 +609,11 @@
           return elem.start;
         });
 
-        divNames.innerHTML = "$ " + nameString;
+        if(nameString !== null) {
+          divNames.innerHTML = nameString;}
+          else {
+            divNames.innerHTML = "$ " + nameString;
+          }
       });
 
       

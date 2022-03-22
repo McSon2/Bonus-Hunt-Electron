@@ -513,8 +513,11 @@
         let nameString = TotalCost.map((elem) => {
           return elem.totalcost;
         });
-
-        divNames.innerHTML = "$" + nameString;
+        if(nameString == 0) {
+          divNames.innerHTML = nameString;}
+          else {
+            divNames.innerHTML = "$ " + nameString;
+          }
       });
 
       //total win
@@ -523,11 +526,15 @@
         let divNames = document.getElementById("TotalWin");
         let nameString = TotalWin.map((elem) => {
           var num = elem.totalwin
-          num = num.toFixed(2)
+          if(num !== null) {
+          num = num.toFixed(2)}
           return num;
         });
- 
-        divNames.innerHTML = "$ " + nameString;
+        if(nameString == 0) {
+          divNames.innerHTML = nameString;}
+          else {
+            divNames.innerHTML = "$ " + nameString;
+          }
       });
 
       //profit loss
@@ -536,11 +543,16 @@
         let divNames = document.getElementById("ProfitLoss");
         let nameString = ProfitLoss.map((elem) => {
           var num = elem.ProfitLoss
-          num = num.toFixed(2)
+          if(num !== null) {
+          num = num.toFixed(2)}
           return num;
         });
-
-        divNames.innerHTML = "$ " + nameString;
+        if(nameString == 0) {
+          divNames.innerHTML = nameString;}
+          else {
+            divNames.innerHTML = "$ " + nameString;
+          }
+        
       });
 
       //ajout d'un hunt

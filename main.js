@@ -23,13 +23,13 @@ function createWindow() {
       enableRemoteModule: true,
       nodeIntegration: false,
       contextIsolation: true,
-      devTools: true,
+      //devTools: true,
       preload: path.join(__dirname, "preload.js"),
     },
   });
 
   win.loadFile("index.html");
-  win.webContents.openDevTools();
+  //win.webContents.openDevTools();
 
   ipc.on("app/close", () => {
     app.quit()

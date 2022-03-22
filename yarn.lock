@@ -398,14 +398,6 @@
     "bindings" "^1.5.0"
     "prebuild-install" "^7.0.0"
 
-"better-sqlite3@^7.5.0":
-  "integrity" "sha512-6FdG9DoytYGDhLW7VWW1vxjEz7xHkqK6LnaUQYA8d6GHNgZhu9PFX2xwKEEnSBRoT1J4PjTUPeg217ShxNmuPg=="
-  "resolved" "https://registry.npmjs.org/better-sqlite3/-/better-sqlite3-7.5.0.tgz"
-  "version" "7.5.0"
-  dependencies:
-    "bindings" "^1.5.0"
-    "prebuild-install" "^7.0.0"
-
 "bindings@^1.5.0":
   "integrity" "sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ=="
   "resolved" "https://registry.npmjs.org/bindings/-/bindings-1.5.0.tgz"
