@@ -41,7 +41,7 @@
       "oneClick": false,
       "installerIcon": "./images/ico.ico",
       "uninstallDisplayName": "my-app-uninstaller",
-      "license": "license.txt",
+      "license": "license.md",
       "allowToChangeInstallationDirectory": true
     }
     
