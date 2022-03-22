@@ -6,6 +6,7 @@ const { electron } = require("process");
 const { URLSearchParams } = require("url");
 const ipc = ipcMain;
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
+const appPath = app.getAppPath().replace("Database", "bh.db");
 
 //Window
 function createWindow() {
@@ -19,6 +20,7 @@ function createWindow() {
     frame: false,
     icon: path.join(__dirname, "./images/ico.ico"),
     webPreferences: {
+      enableRemoteModule: true,
       nodeIntegration: false,
       contextIsolation: true,
       devTools: true,

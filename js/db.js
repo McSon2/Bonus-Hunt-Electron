@@ -1,4 +1,7 @@
 const sqlite = require('better-sqlite3');
+const electron = require('electron');
+
+
 const db = new sqlite("./Database/bh.db");
 
 exports.getNbonus = () => {
