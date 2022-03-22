@@ -97,6 +97,7 @@
 ## Getting Started
 
 Just download and install on your pc. <br />
+
 [Download](https://github.com/McSon2/Bonus-Hunt-Electron/releases/download/v0.0.1/bonus_hunt.exe)
 
 
@@ -162,7 +163,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Maxime SALTET - [@twitter_Mcson](https://twitter.com/McSons1) - maximesaltet@gmail.com
+Maxime SALTET - [@Mcson](https://twitter.com/McSons1) - maximesaltet@gmail.com
 
 Project Link: [https://github.com/McSon2/Bonus-Hunt-Electron](https://github.com/McSon2/Bonus-Hunt-Electron)
 
