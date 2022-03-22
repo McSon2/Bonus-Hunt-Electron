@@ -1,6 +1,7 @@
 {
   "name": "bonus_hunt",
   "version": "1.0.0",
+  "description": "App for bonus hunt",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -20,22 +21,29 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/McSon2/Bonus-Hunt-Electron.git",
-    "token": "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"
   },
   "bugs": {
     "url": "https://github.com/McSon2/Bonus-Hunt-Electron/issues"
   },
   "homepage": "https://github.com/McSon2/Bonus-Hunt-Electron#readme",
-  "description": "",
   "dependencies": {
     "better-sqlite3-multiple-ciphers": "^7.5.1-beta.3"
   },
   "build": {
+    "appId": "my-app",
     "win": {
-      "publish": [
-        "github"
-      ]
+      "target": [
+        "nsis"
+      ],
+      "icon": "./images/ico.ico"
     },
-    "icon": "./images/ico.ico"
+    "nsis": {
+      "oneClick": false,
+      "installerIcon": "./images/ico.ico",
+      "uninstallDisplayName": "my-app-uninstaller",
+      "license": "license.md",
+      "allowToChangeInstallationDirectory": true
+    }
+    
   }
 }
