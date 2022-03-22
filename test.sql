@@ -229,3 +229,4 @@ SELECT COUNT(*) as Remain FROM hunt WHERE hunt.payout IS NULL and id_bonushunt=:
 
 SELECT COUNT(*) as cent FROM hunt WHERE hunt.multiplier > 100 and id_bonushunt=:id
 
+SELECT provider FROM slots where id="144"
