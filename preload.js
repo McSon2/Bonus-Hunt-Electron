@@ -1,4 +1,6 @@
 const {ipcRenderer, contextBridge} = require("electron");
+
+
 const db = require("./js/db");
 
 const getNbonus = () => {
@@ -155,7 +157,6 @@ const providerbyid = (id) => {
 const newslot = (slot,provider,rtp,volatility,potential) => {
     db.newslot(slot,provider,rtp,volatility,potential);
 }
-
 
 const API = {
     window: {

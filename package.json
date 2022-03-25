@@ -37,6 +37,9 @@
       ],
       "icon": "./images/ico.ico"
     },
+    "extraFiles": [
+      "bh.db"
+    ],
     "nsis": {
       "oneClick": false,
       "installerIcon": "./images/ico.ico",

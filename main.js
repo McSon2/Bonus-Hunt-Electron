@@ -6,7 +6,10 @@ const { electron } = require("process");
 const { URLSearchParams } = require("url");
 const ipc = ipcMain;
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
-const appPath = app.getAppPath().replace("Database", "bh.db");
+
+
+
+
 
 //Window
 function createWindow() {
@@ -20,14 +23,14 @@ function createWindow() {
     frame: false,
     icon: path.join(__dirname, "./images/ico.ico"),
     webPreferences: {
-      enableRemoteModule: true,
-      nodeIntegration: false,
+      nodeIntegration: true,
       contextIsolation: true,
       //devTools: true,
       preload: path.join(__dirname, "preload.js"),
     },
   });
 
+  
   win.loadFile("index.html");
   //win.webContents.openDevTools();
 
@@ -52,6 +55,8 @@ function createWindow() {
       win.resizable = false
     }
   })
+
+
 }
 
 // When Electron Ready
