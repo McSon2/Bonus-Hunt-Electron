@@ -4,12 +4,9 @@ const path = require("path");
 const fs = require("fs");
 const { electron } = require("process");
 const { URLSearchParams } = require("url");
+const { autoUpdater} = require ('electron-updater');
 const ipc = ipcMain;
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
-
-
-
-
 
 //Window
 function createWindow() {
@@ -25,14 +22,14 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: true,
-      //devTools: true,
+      devTools: true,
       preload: path.join(__dirname, "preload.js"),
     },
   });
 
   
   win.loadFile("index.html");
-  //win.webContents.openDevTools();
+  win.webContents.openDevTools();
 
   ipc.on("app/close", () => {
     app.quit()
@@ -55,8 +52,6 @@ function createWindow() {
       win.resizable = false
     }
   })
-
-
 }
 
 // When Electron Ready

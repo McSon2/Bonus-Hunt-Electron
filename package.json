@@ -1,13 +1,15 @@
 {
   "name": "bonus_hunt",
-  "version": "1.0.0",
+  "version": "0.0.3",
   "description": "App for bonus hunt",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "win": "electron-builder -w",
     "dist": "electron-builder --publish always",
-    "postinstall": "electron-builder install-app-deps"
+    "postinstall": "electron-builder install-app-deps",
+    "build": "electron-builder build --win --publish never",
+    "deploy": "electron-builder build --win --publish always"
   },
   "keywords": [],
   "author": "Maxime Saltet",
@@ -27,11 +29,16 @@
   },
   "homepage": "https://github.com/McSon2/Bonus-Hunt-Electron#readme",
   "dependencies": {
-    "better-sqlite3-multiple-ciphers": "^7.5.1-beta.3"
+    "better-sqlite3-multiple-ciphers": "^7.5.1-beta.3",
+    "electron-updater": "^4.6.5"
   },
   "build": {
     "appId": "my-app",
     "win": {
+      "publish": {
+        "provider": "github", 
+        "token": "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"
+      },
       "target": [
         "nsis"
       ],
