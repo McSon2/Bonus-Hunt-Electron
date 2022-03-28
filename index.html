@@ -495,11 +495,17 @@
 
     <script>
 
+     // document.addEventListener("DOMContentLoaded", async () => {
+        //const datapath = await app.window.datapath()
+        //console.log(datapath)
+      //})
+      
+
       //widget
 
       //nombre de bonus
       document.addEventListener("DOMContentLoaded", async () => {
-        let nbonus = window.api.getNbonus();
+        let nbonus = await app.window.nbbonus();
         let divNames = document.getElementById("nbonus");
         let nameString = nbonus.map((elem) => {
           return elem.nbonus;
@@ -507,9 +513,10 @@
         divNames.innerHTML = nameString;
       });
 
+      
       //cout total
       document.addEventListener("DOMContentLoaded", async () => {
-        let TotalCost = window.api.getTotalCost();
+        let TotalCost = await app.window.gettotalcost();
         let divNames = document.getElementById("TotalCost");
         let nameString = TotalCost.map((elem) => {
           return elem.totalcost;
@@ -521,9 +528,10 @@
           }
       });
 
+    
       //total win
       document.addEventListener("DOMContentLoaded", async () => {
-        let TotalWin = window.api.getTotalWin();
+        let TotalWin = await app.window.getTotalWin();
         let divNames = document.getElementById("TotalWin");
         let nameString = TotalWin.map((elem) => {
           var num = elem.totalwin
@@ -538,9 +546,10 @@
           }
       });
 
+      
       //profit loss
       document.addEventListener("DOMContentLoaded", async () => {
-        let ProfitLoss = window.api.getProfitLoss();
+        let ProfitLoss = await app.window.getProfitLoss();
         let divNames = document.getElementById("ProfitLoss");
         let nameString = ProfitLoss.map((elem) => {
           var num = elem.ProfitLoss
@@ -553,8 +562,9 @@
           else {
             divNames.innerHTML = "$ " + nameString;
           }
-        
       });
+
+        /*
 
       //ajout d'un hunt
       const SaveHunt = document.getElementById("SaveHunt");
@@ -716,8 +726,8 @@
         
         $('#tableBonushunt').DataTable();
       });
-
       
+      */
       
     </script>
 

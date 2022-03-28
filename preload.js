@@ -1,6 +1,6 @@
 const {ipcRenderer, contextBridge} = require("electron");
 
-
+/*
 const db = require("./js/db");
 
 const getNbonus = () => {
@@ -158,17 +158,6 @@ const newslot = (slot,provider,rtp,volatility,potential) => {
     db.newslot(slot,provider,rtp,volatility,potential);
 }
 
-const API = {
-    window: {
-        close: () => ipcRenderer.send("app/close"),
-        minimize: () => ipcRenderer.send("app/minimize"),
-        size: () => ipcRenderer.send("app/size"),
-        reload: () => ipcRenderer.send("app/reload")
-    }
-}
-
-
-contextBridge.exposeInMainWorld("app", API)
 contextBridge.exposeInMainWorld("api", {
     getNbonus: getNbonus,
     getTotalCost: getTotalCost,
@@ -204,5 +193,23 @@ contextBridge.exposeInMainWorld("api", {
     updateslot: updateslot,
     provider: provider,
     providerbyid: providerbyid,
-    newslot: newslot
+    newslot: newslot,
 })
+*/
+
+const API = {
+    window: {
+        close: () => ipcRenderer.send("app/close"),
+        minimize: () => ipcRenderer.send("app/minimize"),
+        size: () => ipcRenderer.send("app/size"),
+        reload: () => ipcRenderer.send("app/reload"),
+        nbbonus: () => ipcRenderer.invoke("getNbbonus"),
+        gettotalcost: () => ipcRenderer.invoke("getTotalCost"),
+        getTotalWin: () => ipcRenderer.invoke("getTotalWin"),
+        getProfitLoss: () => ipcRenderer.invoke("getProfitLoss"),
+        date: () => ipcRenderer.invoke("date"),
+        ProfitLoss: () => ipcRenderer.invoke("ProfitLoss")
+    }
+}
+
+contextBridge.exposeInMainWorld("app", API)

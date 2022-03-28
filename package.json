@@ -1,6 +1,6 @@
 {
   "name": "bonus_hunt",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "App for bonus hunt",
   "main": "main.js",
   "scripts": {

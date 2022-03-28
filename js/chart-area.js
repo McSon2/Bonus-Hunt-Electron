@@ -1,3 +1,4 @@
+
 // Set new default font family and font color to mimic Bootstrap's default styling
 Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#858796';
@@ -27,14 +28,15 @@ function number_format(number, decimals, dec_point, thousands_sep) {
   return s.join(dec);
 }
 
+document.addEventListener("DOMContentLoaded", async () => {
 
-let date = window.api.date();
+let date = await app.window.date();
 let alldate = date.map((elem) => {
   return elem.date; });
 //console.log("*** date =", date)
 //console.log("*** date =", alldate)
 
-let ProfitLoss = window.api.ProfitLoss();
+let ProfitLoss = await app.window.ProfitLoss();
 let allProfitLoss = ProfitLoss.map ((elem) => {
   return elem.profitloss;
 });
@@ -132,3 +134,5 @@ var myLineChart = new Chart(ctx, {
     }
   }
 });
+
+})
