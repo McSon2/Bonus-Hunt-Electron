@@ -1,0 +1,1 @@
+SELECT start FROM bonus_hunt where id=4

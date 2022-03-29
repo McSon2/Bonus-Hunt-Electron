@@ -479,7 +479,7 @@
       
     //Select2
         document.addEventListener("DOMContentLoaded", async () => {
-            var provider = window.api.provider()
+            var provider = await app.window.provider()
             var providers = $.map(provider, function (obj) {
                 obj.text = obj.text || obj.provider;
                 return obj
@@ -494,22 +494,22 @@
       //ajout d'un hunt
       const SaveHunt = document.getElementById("SaveHunt");
       
-      SaveHunt.addEventListener("click", () => {
+      SaveHunt.addEventListener("click", async () => {
         
         let select = document.getElementById("select2")
         let id = select.value
-        let pro = window.api.providerbyid(id)
+        let pro = await app.window.providerbyid(id)
         let prov = pro.map((elem) => {
           var num = elem.provider
           return num
         })
-        let provider = String(prov)
+        const provider = String(prov)
         const slot = document.getElementById("createslot").value
         const rtp = document.getElementById("creatertp").value
         const volatility = document.getElementById("createvolatility").value
         const potential = document.getElementById("createpotential").value
         
-        window.api.newslot(slot,provider,rtp,volatility,potential);
+        app.window.newslot(slot,provider,rtp,volatility,potential);
         app.window.reload();
       });
 
@@ -521,7 +521,7 @@
       //bonus hunt table
       document.addEventListener("DOMContentLoaded", async () => {
         
-        let bonushunt = window.api.allslot();
+        let bonushunt = await app.window.allslot();
 
         var tableBonushuntbody = document
           .getElementById("tableBonushunt")
@@ -597,7 +597,7 @@
               const rtp = rtps.value
               const volatility = volatilitys.value;
               const potential = potentials.value;
-              window.api.updateslot(id,slot,provider,rtp,volatility,potential);
+              app.window.updateslot(id,slot,provider,rtp,volatility,potential);
               app.window.reload();
             })
           })

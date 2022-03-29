@@ -640,7 +640,7 @@
     <script>
       //Select2
       document.addEventListener("DOMContentLoaded", async () => {
-        var slots = window.api.slots()
+        var slots = await app.window.slots()
         var slot = $.map(slots, function (obj) {
           obj.text = obj.text || obj.slot;
           return obj
@@ -659,13 +659,12 @@
       SaveHunt.addEventListener("click", () => {
         const select = document.getElementById("select2")
         const slotid = select.value
-        console.log(slotid)
         const betsizebonus = document.getElementById("betsize")
         const betsize = betsizebonus.value
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const idhunt = urlParams.get("id");
-        window.api.newbonus(idhunt,slotid,betsize);
+        app.window.newbonus(idhunt,slotid,betsize);
         app.window.reload();
       });
 
@@ -680,9 +679,8 @@
         const urlParams = new URLSearchParams(queryString);
         const id = urlParams.get("id");
 
-        let profitloss = window.api.ProfitLossbyid(id);
+        let profitloss = await app.window.ProfitLossbyid(id);
         let divNames = document.getElementById("profitloss");
-
         let nameString = profitloss.map((elem) => {
           var num = elem.profitloss;
           if (num !== null) {
@@ -702,7 +700,7 @@
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const id = urlParams.get("id");
-        let bonuscount = window.api.CountBonusbyid(id);
+        let bonuscount = await app.window.CountBonusbyid(id);
         let divNames = document.getElementById("bonuscount");
         let nameString = bonuscount.map((elem) => {
           return elem.NB_Bonus;
@@ -717,7 +715,7 @@
         const urlParams = new URLSearchParams(queryString);
         const id = urlParams.get("id");
 
-        let startcost = window.api.startbyid(id);
+        let startcost = await app.window.startbyid(id);
         let divNames = document.getElementById("startcost");
         let nameString = startcost.map((elem) => {
           return elem.start;
@@ -737,7 +735,7 @@
         const urlParams = new URLSearchParams(queryString);
         const id = urlParams.get("id");
 
-        let amountwon = window.api.amountwon(id);
+        let amountwon = await app.window.amountwon(id);
         let divNames = document.getElementById("amountwon");
         let nameString = amountwon.map((elem) => {
           var num = elem.amountwon;
@@ -758,7 +756,7 @@
         const urlParams = new URLSearchParams(queryString);
         const id = urlParams.get("id");
 
-        let avgrequire = window.api.avgrequire(id);
+        let avgrequire = await app.window.avgrequire(id);
         let divNames = document.getElementById("avgrequire");
         let nameString = avgrequire.map((elem) => {
           var num = elem.BE;
@@ -779,7 +777,7 @@
         const urlParams = new URLSearchParams(queryString);
         const id = urlParams.get("id");
 
-        let avg = window.api.avg(id);
+        let avg = await app.window.avg(id);
         let divNames = document.getElementById("avg");
         let nameString = avg.map((elem) => {
           var num = elem.AVG;
@@ -800,7 +798,7 @@
         const urlParams = new URLSearchParams(queryString);
         const id = urlParams.get("id");
 
-        let bex = window.api.bex(id);
+        let bex = await app.window.bex(id);
         let divNames = document.getElementById("bex");
         let nameString = bex.map((elem) => {
           var num = elem.BEX;
@@ -822,7 +820,7 @@
         const urlParams = new URLSearchParams(queryString);
         const id = urlParams.get("id");
 
-        let avgx = window.api.avgx(id);
+        let avgx = await app.window.avgx(id);
         let divNames = document.getElementById("avgx");
         let nameString = avgx.map((elem) => {
           var num = elem.AVGX;
@@ -843,7 +841,7 @@
         const urlParams = new URLSearchParams(queryString);
         const id = urlParams.get("id");
 
-        let remain = window.api.remain(id);
+        let remain = await app.window.remain(id);
         let divNames = document.getElementById("remain");
         let nameString = remain.map((elem) => {
           var num = elem.Remain;
@@ -858,7 +856,7 @@
         const urlParams = new URLSearchParams(queryString);
         const id = urlParams.get("id");
 
-        let cent = window.api.cent(id);
+        let cent = await app.window.cent(id);
         let divNames = document.getElementById("cent");
         let nameString = cent.map((elem) => {
           var num = elem.cent;
@@ -873,7 +871,7 @@
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const id = urlParams.get("id");
-        let bonushunt = window.api.hunt(id);
+        let bonushunt = await app.window.hunt(id);
 
         var tableBonushuntbody = document
           .getElementById("tableBonushunt")
@@ -945,7 +943,7 @@
             titlemoddal.innerHTML = "Remove this bonus ?" + "<br>" + el.slot;
             deleteyes.id = el.id;
             deleteyes.addEventListener('click', () => {
-              window.api.deletebonus(deleteyes.id);
+              app.window.deletebonus(deleteyes.id);
               app.window.reload();
             })
           });
@@ -969,7 +967,7 @@
             updateyes.addEventListener('click', () => {
               const payout = updatepayout.value
               const bet = updatebetsize.value;
-              window.api.updatebonus(idhunt,id,bet,payout);
+              app.window.updatebonus(idhunt,id,bet,payout);
               app.window.reload();
             })
           })

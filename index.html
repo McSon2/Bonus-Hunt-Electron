@@ -564,20 +564,20 @@
           }
       });
 
-        /*
+        
 
       //ajout d'un hunt
       const SaveHunt = document.getElementById("SaveHunt");
-      SaveHunt.addEventListener('click', () => {
+      SaveHunt.addEventListener('click', async () => {
         const NameHunt = document.getElementById("NameHunt");
         const StartHunt = document.getElementById("StartHunt");
         const DateHunt = document.getElementById("DateHunt");
         const title = NameHunt.value;
         const start = StartHunt.value;
         const date = DateHunt.value;
-        window.api.newHunt(title,start,date);
+        app.window.newHunt(title,start,date);
         
-        var id = window.api.getidhunt(title)
+        var id = await app.window.getidhunt(title)
         var nameString = id.map((elem) => {
           var num = elem.id
           return num
@@ -596,7 +596,7 @@
       //bonus hunt table
       document.addEventListener("DOMContentLoaded", async () => {
 
-        let bonushunt = window.api.bonushunt();
+        let bonushunt = await app.window.bonushunt();
         
         var tableBonushuntbody = document.getElementById("tableBonushunt").getElementsByTagName("tbody")[0]
         var tableBonushunt = document.getElementById("tableBonushunt")
@@ -606,7 +606,6 @@
           if(i > 0)
             el.parentNode.removeChild(el);
         });
-
 
         bonushunt.forEach((el) => {
           var row = tableBonushuntbody.insertRow(0);
@@ -689,11 +688,11 @@
             updatestarthunt.setAttribute('value',el.start);
             updatedatehunt.setAttribute('value',formatdate);
             updateyes.id = el.id;
-            updateyes.addEventListener('click', () => {
+            updateyes.addEventListener('click', async () => {
               const title = updatenamehunt.value;
               const start = updatestarthunt.value;
               const date = updatedatehunt.value;
-              window.api.updatehunt(title,start,date,updateyes.id);
+              app.window.updatehunt(title,start,date,updateyes.id);
               app.window.reload();
             })
           })
@@ -701,11 +700,11 @@
           var deleteyes = document.getElementById("deletethishunt");
           var btndelete = document.getElementById(el.id);
           var titlemoddal = document.getElementById("titlemoddalsupphunt");
-          btndelete.addEventListener('click', () => {
+          btndelete.addEventListener('click', async () => {
             titlemoddal.innerHTML = "Remove this hunt ?" + "<br>" + el.title;
             deleteyes.id = el.id;
-            deleteyes.addEventListener('click', () => {
-              window.api.deletehunt(deleteyes.id);
+            deleteyes.addEventListener('click', async () => {
+              await app.window.deletehunt(deleteyes.id);
               app.window.reload();
             })
           })
@@ -720,14 +719,10 @@
             location.href = "./HTML/bonus.html" + "?id=" + el.id + "&title=" + title
           })
 
-          
-
         })
         
         $('#tableBonushunt').DataTable();
       });
-      
-      */
       
     </script>
 
