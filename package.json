@@ -37,7 +37,7 @@
     "win": {
       "publish": {
         "provider": "github", 
-        "token": "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"
+        "token": "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"
       },
       "target": [
         "nsis"
